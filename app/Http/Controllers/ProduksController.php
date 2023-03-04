@@ -9,11 +9,12 @@ class ProduksController extends Controller
 {
     public function index()
     {
-
+        return view('nara.produk.index');
     }
 
     public function create()
     {
+        return view('nara.produk.create');
     }
 
     public function store(Request $request)
