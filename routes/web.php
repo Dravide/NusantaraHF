@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProduksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main.homepage');
+Route::get('/', fn() => view('main.homepage'));
+
+Route::get('/single-product', fn() => view('main.single-product'));
+
+Route::get('/shop', fn() => view('main.product-list'));
+
+
+Route::group(['prefix' => 'nara'], function () {
+    Route::get('home', HomeController::class)->name('home');
+    Route::resource('produk', ProduksController::class);
 });
 
-Route::get('/single-product', function () {
-    return view('main.single-product');
-});
-
-Route::get('/shop', function () {
-    return view('main.product-list');
-});
