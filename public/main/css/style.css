@@ -11888,7 +11888,7 @@ input.cart-plus-minus-box {
 /* ----------------------------------------------------
     Background Video
 ---------------------------------------------------- */
-/* Video From Local (src="main/main/myFolderName/videoName.mp4") */
+/* Video From Local (src="main/myFolderName/videoName.mp4") */
 #myVideo {
   position: absolute;
   right: 0;
@@ -11896,7 +11896,7 @@ input.cart-plus-minus-box {
   min-width: 100%;
   min-height: 100%; }
 
-/* Video From Link (src="main/main/website.com/videoUrl") */
+/* Video From Link (src="main/website.com/videoUrl") */
 .video-foreground,
 .video-background iframe {
   position: absolute;
