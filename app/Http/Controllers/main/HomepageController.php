@@ -28,7 +28,8 @@ class HomepageController extends Controller
             'buah' => $buah,
             'rempah' => $rempah,
             'daging' => $daging,
-            'makanan' => $makanan
+            'makanan' => $makanan,
+            'makanan2' => $makanan
         ];
         return view('main.homepage')->with($data);
 

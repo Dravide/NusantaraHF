@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/single-product', fn() => view('main.single-product'));
 
-Route::get('/shop', fn() => view('main.product-list'));
+Route::get('/shop', [\App\Http\Controllers\main\ShopController::class, 'index']);
 
 Route::group(['prefix' => 'shop'], function () {
     Route::get('{kategori}', fn(string $kategori) => view('main.product-list'));
