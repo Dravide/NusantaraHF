@@ -60,7 +60,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo">
-                            <a href="index.html"><img src="main/img/logo-2.png" alt="Logo"></a>
+                            <a href="index.html"><img src="{{asset('main/img/logo-2.png')}}" alt="Logo"></a>
                         </div>
                     </div>
                 </div>

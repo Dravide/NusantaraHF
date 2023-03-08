@@ -8,7 +8,7 @@
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="ltn__feature-item ltn__feature-item-8">
                                 <div class="ltn__feature-icon">
-                                    <img src="main/img/icons/icon-img/11.png" alt="#">
+                                    <img src="{{asset('main/img/icons/icon-img/11.png')}}" alt="#">
                                 </div>
                                 <div class="ltn__feature-info">
                                     <h4>Curated Products</h4>
@@ -20,7 +20,7 @@
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="ltn__feature-item ltn__feature-item-8">
                                 <div class="ltn__feature-icon">
-                                    <img src="main/img/icons/icon-img/12.png" alt="#">
+                                    <img src="{{asset('main/img/icons/icon-img/12.png')}}" alt="#">
                                 </div>
                                 <div class="ltn__feature-info">
                                     <h4>Handmade</h4>
@@ -32,7 +32,7 @@
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="ltn__feature-item ltn__feature-item-8">
                                 <div class="ltn__feature-icon">
-                                    <img src="main/img/icons/icon-img/13.png" alt="#">
+                                    <img src="{{asset('main/img/icons/icon-img/13.png')}}" alt="#">
                                 </div>
                                 <div class="ltn__feature-info">
                                     <h4>Natural Food</h4>
@@ -44,7 +44,7 @@
                         <div class="col-xl-3 col-md-6 col-12">
                             <div class="ltn__feature-item ltn__feature-item-8">
                                 <div class="ltn__feature-icon">
-                                    <img src="main/img/icons/icon-img/14.png" alt="#">
+                                    <img src="{{asset('main/img/icons/icon-img/14.png')}}" alt="#">
                                 </div>
                                 <div class="ltn__feature-info">
                                     <h4>Free home delivery</h4>
@@ -69,7 +69,7 @@
                     <div class="footer-widget footer-about-widget">
                         <div class="footer-logo">
                             <div class="site-logo">
-                                <img src="main/img/logo.png" alt="Logo">
+                                <img src="{{asset('main/img/logo.png')}}" alt="Logo">
                             </div>
                         </div>
                         <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
