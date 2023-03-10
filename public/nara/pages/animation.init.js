@@ -7,7 +7,7 @@
  function body() {
     this.myFunction();
     const body = document.getElementById("body");
-
+    
 }
 function myFunction() {
     const selector = document.querySelector('#animate-me');
@@ -20,7 +20,7 @@ function myFunction() {
         });
 
         button.addEventListener('click', e => {
-            setTimeout(function () {
+            setTimeout(function () {                       
                 const button = e.target;
                 const effect = button.dataset.test;
                 selector.classList.remove('magictime', effect);

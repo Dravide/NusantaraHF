@@ -6,7 +6,7 @@
 
 
  var wallet_kra = {
-
+    
   chart: {
       type: 'area',
       height: 60,
@@ -46,7 +46,7 @@ new ApexCharts(document.querySelector("#wallet_kra"), wallet_kra).render();
 
 
 var wallet_coi = {
-
+    
   chart: {
       type: 'area',
       height: 60,

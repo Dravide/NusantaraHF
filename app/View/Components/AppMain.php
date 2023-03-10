@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Apps extends Component
+class AppMain extends Component
 {
     public $title;
 
@@ -16,6 +16,6 @@ class Apps extends Component
 
     public function render(): View
     {
-        return view('nara.layouts.apps');
+        return view('nara.layouts.app');
     }
 }

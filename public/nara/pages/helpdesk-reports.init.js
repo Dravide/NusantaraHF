@@ -4,7 +4,7 @@
  * Reports Js
  */
 //colunm-1
-
+  
 var options = {
   chart: {
       height: 325,
@@ -31,7 +31,7 @@ var options = {
   colors: ["rgba(42, 118, 244, .18)", '#2a76f4'],
   series: [{
       name: 'New Tickets',
-      data: [68, 44, 55, 57, 56, 61, 58, 63, 60, 66]
+      data: [68, 44, 55, 57, 56, 61, 58, 63, 60, 66] 
   }, {
       name: 'Solved Tickets',
       data: [51, 76, 85, 101, 98, 87, 105, 91, 114, 94]
@@ -40,10 +40,10 @@ var options = {
       categories: ['Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
       axisBorder: {
         show: true,
-      },
+      },  
       axisTicks: {
         show: true,
-      },
+      },    
   },
   legend: {
     offsetY: 6,
@@ -88,7 +88,7 @@ chart.render();
 
 
 var dash_spark_1 = {
-
+    
   chart: {
       type: 'area',
       height: 60,
@@ -125,7 +125,7 @@ new ApexCharts(document.querySelector("#dash_spark_1"), dash_spark_1).render();
 
 
 var dash_spark_2 = {
-
+    
   chart: {
       type: 'area',
       height: 60,

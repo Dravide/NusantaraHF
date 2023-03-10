@@ -50,12 +50,12 @@
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                labels: {
+                labels: {                   
                     color: '#7c8ea7',
                 }
             }
         }  ,
-        scales: {
+        scales: {            
             y: {
                 beginAtZero: true,
                 ticks: {
@@ -64,7 +64,7 @@
                         return '$' + value;
                     },
                     color: '#7c8ea7',
-                },
+                },               
                 grid: {
                     drawBorder: 'border',
                     color: 'rgba(132, 145, 183, 0.15)',
@@ -73,19 +73,19 @@
                 } ,
                 beginAtZero: true,
             },
-            x: {
+            x: {   
               ticks: {
                 color: '#7c8ea7',
-              },
+              },            
                 grid: {
                     display: false,
                     color: 'rgba(132, 145, 183, 0.09)',
                     borderDash: [3],
                     borderColor: 'rgba(132, 145, 183, 0.09)',
-                }
-            }
+                }    
+            }            
          },
-
+         
      }
  });
 
@@ -105,7 +105,7 @@
              indexAxis: 'x',
              barThickness: 15,
              grouped: true,
-             maxBarThickness: 9,
+             maxBarThickness: 9,  
              barPercentage: 50
          },
          {
@@ -119,17 +119,17 @@
             indexAxis: 'x',
             barThickness: 15,
             grouped: true,
-            maxBarThickness: 9,
+            maxBarThickness: 9,            
         }]
      },
-
+    
      options: {
         maintainAspectRatio: false,
         responsive: true,
         plugins: {
           legend: {
             position: 'top',
-            labels: {
+            labels: {                   
                 color: '#7c8ea7',
             }
           },
@@ -138,7 +138,7 @@
             text: 'Chart.js Bar Chart'
           }
         },
-        scales: {
+        scales: {            
             y: {
                 beginAtZero: true,
                 ticks: {
@@ -147,7 +147,7 @@
                         return '$' + value;
                     },
                     color: '#7c8ea7',
-                },
+                },               
                 grid: {
                     drawBorder: 'border',
                     color: 'rgba(132, 145, 183, 0.15)',
@@ -156,31 +156,31 @@
                 } ,
                 beginAtZero: true,
             },
-            x: {
+            x: {   
               ticks: {
                 color: '#7c8ea7',
-              },
+              },            
                 grid: {
                     display: false,
                     color: 'rgba(132, 145, 183, 0.09)',
                     borderDash: [3],
                     borderColor: 'rgba(132, 145, 183, 0.09)',
-                }
-            }
+                }    
+            }            
          },
     },
  });
 
 
-
+ 
  var ctx3 = document.getElementById('doughnut').getContext('2d');
  var myChart = new Chart(ctx3, {
      type: 'doughnut',
      data: {
-        labels: [
+        labels: [            
             "Desktops",
             "Laptop",
-            "Tablets",
+            "Tablets",        
             "Mobiles",],
          datasets: [{
              data: [80, 50, 100, 121],
@@ -199,30 +199,30 @@
                 "#ff5da0",
                 "#e0e7fd",
                 "#4ac7ec",
-            ],
+            ],             
          },]
      },
      options: {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                labels: {
+                labels: {                   
                     color: '#7c8ea7',
                 }
             }
-        }
+        }         
      }
  });
 
-
+ 
  var ctx4 = document.getElementById('polarArea').getContext('2d');
  var myChart = new Chart(ctx4, {
      type: 'polarArea',
      data: {
-        labels: [
+        labels: [            
         "Desktops",
         "Laptop",
-        "Tablets",
+        "Tablets",        
         "Mobiles",],
          datasets: [{
              data: [80, 50, 100, 121],
@@ -238,18 +238,18 @@
                 "#ff5da0",
                 "#e0e7fd",
                 "#4ac7ec",
-            ],
+            ],             
          },]
      },
      options: {
-        maintainAspectRatio: false,
+        maintainAspectRatio: false,  
         plugins: {
             legend: {
-                labels: {
+                labels: {                   
                     color: '#7c8ea7',
                 }
             }
-        }
+        }       
      }
  });
 
@@ -258,10 +258,10 @@
  var myChart = new Chart(ctx5, {
      type: 'pie',
      data: {
-        labels: [
+        labels: [            
             "Desktops",
             "Laptop",
-            "Tablets",
+            "Tablets",        
             "Mobiles",],
          datasets: [{
              data: [80, 50, 100, 121],
@@ -280,14 +280,14 @@
                 "#ff5da0",
                 "#e0e7fd",
                 "#4ac7ec",
-            ],
+            ],             
          },]
      },
      options: {
-        maintainAspectRatio: false,
+        maintainAspectRatio: false,         
         plugins: {
             legend: {
-                labels: {
+                labels: {                   
                     color: '#7c8ea7',
                 }
             }
@@ -340,19 +340,19 @@
         }]
      },
      options: {
-        maintainAspectRatio: false,
-        scales: {
+        maintainAspectRatio: false, 
+        scales: { 
             r: {
                 angleLines: {
                     display: true,
                     color: 'rgba(132, 145, 183, 0.15)',
                     borderDash: [2]
                 },
-            } ,
-         },
+            } ,     
+         }, 
         plugins: {
             legend: {
-                labels: {
+                labels: {                   
                     color: '#7c8ea7',
                 }
             }

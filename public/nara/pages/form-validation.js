@@ -38,7 +38,7 @@
         const small = formControl.querySelector('small');
         small.innerText = message;
         small.classList.add('error');
-        small.classList.remove('success');
+        small.classList.remove('success');        
 
     }
 

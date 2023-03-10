@@ -16,7 +16,7 @@ plotOptions: {
     hollow: {
       margin: 10,
       size: '55%',
-      background: 'transparent',
+      background: 'transparent',  
     },
     dataLabels: {
       name: {
@@ -28,7 +28,7 @@ plotOptions: {
       },
       total: {
         show: true,
-      },
+      },      
     },
     track: {
       show: true,

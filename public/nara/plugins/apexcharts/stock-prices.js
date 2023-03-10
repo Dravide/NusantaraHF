@@ -1,4 +1,4 @@
-var series =
+var series = 
 {
   "monthDataSeries1": {
     "prices": [

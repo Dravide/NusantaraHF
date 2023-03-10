@@ -17,7 +17,7 @@ markerMap = new GMaps({
 });
 
 
-markerMap.addMarker({
+markerMap.addMarker({ 
   lat: -12.043333,
   lng: -77.028333,
   title: 'Lima',

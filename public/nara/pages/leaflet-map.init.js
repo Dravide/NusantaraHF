@@ -166,7 +166,7 @@ var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		map.addLayer(poly);
 
         path.bindPopup("Hello world");
-
+        
         // Map-4
 
 
@@ -198,7 +198,7 @@ var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		}
 
         update();
-
+        
         // Map-5
 
 
@@ -226,7 +226,7 @@ var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 
 
                 var map = L.map('V_Simple');
-
+		
 		map.setView([51.505, -0.09], 13);
 
 		var marker = L.marker([51.5, -0.09])
@@ -247,4 +247,4 @@ var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 			osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib}).addTo(map);
-
+    

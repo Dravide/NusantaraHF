@@ -41,7 +41,7 @@ var options = {
          showLabel: false
      },
 
-
+     
 };
 var theme = {
     chart: {
@@ -84,7 +84,7 @@ var theme = {
             color: '#8791af'
         }
     },
-
+    
 };
 
 tui.chart.registerTheme('myTheme', theme);
@@ -1688,7 +1688,7 @@ var options = {
         zoomable: false,
         useLeafLabel: true
     },
-
+    
     tooltip: {
         suffix: 'GB'
     }
@@ -1714,7 +1714,7 @@ var theme = {
     },
     series: {
         colors: [
-            '#0b51b7', '#1ccab8', '#eeeab5', '#ef4586',
+            '#0b51b7', '#1ccab8', '#eeeab5', '#ef4586', 
         ],
         borderColor: 'rgba(255, 255, 255, 0.4)',
         borderWidth: 4

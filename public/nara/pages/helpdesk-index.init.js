@@ -31,11 +31,11 @@
       data: [0, 30, 10, 40, 30, 60, 50, 80, 70, 100, 90, 130]
   }],
   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-
+  
   yaxis: {
-    labels: {
+    labels: {      
       offsetX: -12,
-      offsetY: 0,
+      offsetY: 0,      
     }
   },
   grid: {
@@ -45,17 +45,17 @@
         lines: {
             show: true
         }
-    },
+    },   
     yaxis: {
         lines: {
             show: false,
         }
     },
-  },
+  }, 
   legend: {
    show: false
   },
-
+  
   fill: {
       type:"gradient",
       gradient: {
@@ -76,7 +76,7 @@ chart.render();
 
 
 var dash_spark_1 = {
-
+    
   chart: {
       type: 'area',
       height: 60,
@@ -116,7 +116,7 @@ new ApexCharts(document.querySelector("#dash_spark_1"), dash_spark_1).render();
 
 
 var dash_spark_2 = {
-
+    
   chart: {
       type: 'area',
       height: 60,
@@ -160,7 +160,7 @@ var options = {
   chart: {
       height: 240,
       type: 'donut',
-  },
+  }, 
   plotOptions: {
     pie: {
       donut: {
@@ -170,7 +170,7 @@ var options = {
   },
   dataLabels: {
     enabled: false,
-  },
+  }, 
   stroke: {
     show: true,
     width: 2,
@@ -189,7 +189,7 @@ var options = {
   },
   labels: [ "Excellent", "Very Good", "Good", "Fair"],
   colors: ["#2a76f4", "#fdb5c8", "#67c8ff", "#c693ff"],
-
+ 
   responsive: [{
       breakpoint: 600,
       options: {
@@ -197,7 +197,7 @@ var options = {
             donut: {
               customScale: 0.2
             }
-          },
+          },        
           chart: {
               height: 240
           },
@@ -214,7 +214,7 @@ var options = {
         }
     }
   }
-
+  
 }
 
 var chart = new ApexCharts(

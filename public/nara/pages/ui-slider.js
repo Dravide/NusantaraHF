@@ -13,7 +13,7 @@ noUiSlider.create(slider, {
     range: {
         min: [0],
         max: [10]
-    },
+    },   
 });
 
 slider.noUiSlider.on('hover', function( value ){

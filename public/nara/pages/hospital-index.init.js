@@ -44,11 +44,11 @@
         data: [0, 30, 10, 40, 30, 60, 50, 80, 70, 100, 90, 130]
     }],
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-
+    
     yaxis: {
-      labels: {
+      labels: {      
         offsetX: -12,
-        offsetY: 0,
+        offsetY: 0,      
       }
     },
     grid: {
@@ -58,19 +58,19 @@
           lines: {
               show: true
           }
-      },
+      },   
       yaxis: {
           lines: {
               show: false,
           }
       },
-    },
+    }, 
     legend: {
       show: true,
       position: 'top',
       horizontalAlign: 'right',
   },
-
+    
     fill: {
         type:"gradient",
         gradient: {
@@ -80,10 +80,10 @@
         }
     },
   };
-
+  
   var chart = new ApexCharts(document.querySelector("#patients-survey"), options);
   chart.render();
-
+  
 
 
   var options = {
@@ -99,7 +99,7 @@
         hollow: {
           margin: 5,
           size: '50%',
-          background: 'transparent',
+          background: 'transparent',  
         },
         track: {
           show: false,
@@ -112,7 +112,7 @@
               fontSize: '16px',
               color: '#50649c',
           },
-
+          
         }
       },
     },
@@ -142,20 +142,20 @@
         }
     }]
   }
-
-
+  
+  
   var chart = new ApexCharts(
     document.querySelector("#covid_status"),
     options
   );
-
+  
   chart.render();
 
 
-
+  
 
  //colunm-1
-
+  
  var options = {
   chart: {
       height: 210,
@@ -192,18 +192,18 @@
       axisBorder: {
         show: true,
         color: '#bec7e0',
-      },
+      },  
       axisTicks: {
         show: true,
         color: '#bec7e0',
-      },
+      },    
   },
   legend: {
     show: false,
     position: 'top',
     horizontalAlign: 'right',
   },
-
+ 
   fill: {
       opacity: 1
 
@@ -222,7 +222,7 @@
   tooltip: {
       y: {
           formatter: function (val) {
-              return "" + val
+              return "" + val 
           }
       }
   }

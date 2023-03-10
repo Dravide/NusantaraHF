@@ -7,12 +7,12 @@
 
 //Device-widget
 
-
+ 
 var options = {
   chart: {
       height: 270,
       type: 'donut',
-  },
+  }, 
   plotOptions: {
     pie: {
       donut: {
@@ -29,7 +29,7 @@ var options = {
     width: 2,
     colors: ['transparent']
   },
-
+ 
   series: [50, 25, 25,],
   legend: {
     show: true,
@@ -43,7 +43,7 @@ var options = {
   },
   labels: [ "Binance","Kraken", "Bittrex" ],
   colors: ["#2a76f4","rgba(42, 118, 244, .5)","rgba(42, 118, 244, .18)"],
-
+ 
   responsive: [{
       breakpoint: 600,
       options: {
@@ -51,7 +51,7 @@ var options = {
             donut: {
               customScale: 0.2
             }
-          },
+          },        
           chart: {
               height: 240
           },
@@ -67,7 +67,7 @@ var options = {
         }
     }
   }
-
+  
 }
 
 var chart = new ApexCharts(
