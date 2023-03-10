@@ -26,7 +26,7 @@ var options = {
   title: {
     text: 'Product Trends by Month',
     align: 'left'
-  },
+  },  
   grid: {
     row: {
       colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
@@ -79,7 +79,7 @@ var options = {
       markers: {
         size: 0,
       },
-
+      
       fill: {
         type: 'gradient',
         gradient: {
@@ -158,18 +158,18 @@ var options = {
             name: 'Unique Visits',
             data: [0,45,10,75,35,94,40,115,30,105,65,110]
         }],
-
+      
         xaxis: {
             type: 'month',
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             axisBorder: {
               show: true,
               color: '#45404a2e',
-            },
+            },  
             axisTicks: {
               show: true,
               color: '#45404a2e',
-            },
+            },                  
         },
         fill: {
           type: "gradient",
@@ -180,7 +180,7 @@ var options = {
             stops: [0, 90, 100]
           }
         },
-
+        
         tooltip: {
             x: {
                 format: 'dd/MM/yy HH:mm'
@@ -191,12 +191,12 @@ var options = {
           horizontalAlign: 'right'
         },
       }
-
+      
       var chart = new ApexCharts(
         document.querySelector("#apex_area1"),
         options
       );
-
+      
       chart.render();
 
       //Area-2
@@ -517,7 +517,7 @@ var options = {
             [1361833200000,38.59],
             [1361919600000,39.60],
             ]
-
+            
           },
         ],
         markers: {
@@ -531,11 +531,11 @@ var options = {
           axisBorder: {
             show: true,
             color: '#bec7e0',
-          },
+          },  
           axisTicks: {
             show: true,
             color: '#bec7e0',
-          },
+          },    
         },
         colors: ['#008ffb'],
         tooltip: {
@@ -626,7 +626,7 @@ var options = {
   })
 
  //colunm-1
-
+  
  var options = {
   chart: {
       height: 396,
@@ -666,11 +666,11 @@ var options = {
       axisBorder: {
           show: true,
           color: '#bec7e0',
-        },
+        },  
         axisTicks: {
           show: true,
           color: '#bec7e0',
-      },
+      },    
   },
   legend: {
       offsetY: 6,
@@ -857,14 +857,14 @@ var options = {
       axisBorder: {
           show: true,
           color: '#bec7e0',
-        },
+        },  
         axisTicks: {
           show: true,
           color: '#bec7e0',
-      },
+      }, 
   },
   xaxis: {
-      categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'],
+      categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan', 'United States', 'China', 'Germany'],        
   },
   states: {
       hover: {
@@ -920,11 +920,11 @@ var options = {
       axisBorder: {
         show: true,
         color: '#bec7e0',
-      },
+      },  
       axisTicks: {
         show: true,
         color: '#bec7e0',
-    },
+    }, 
   },
   yaxis: [
       {
@@ -1101,11 +1101,11 @@ var options2 = {
       axisBorder: {
         show: true,
         color: '#bec7e0',
-      },
+      },  
       axisTicks: {
         show: true,
         color: '#bec7e0',
-    },
+    }, 
   },
   yaxis: {
       max: 70
@@ -1378,17 +1378,17 @@ var options = {
       },
     ]
   }],
-
+  
   xaxis: {
     type: 'datetime',
     axisBorder: {
       show: true,
       color: '#bec7e0',
-    },
+    },  
     axisTicks: {
       show: true,
       color: '#bec7e0',
-    },
+    },    
   },
   yaxis: {
       labels: {
@@ -1657,12 +1657,12 @@ chart.render();
 // Pie Charts
 //
 
-
+  
   var options = {
     chart: {
         height: 320,
         type: 'pie',
-    },
+    }, 
     stroke: {
       show: true,
       width: 2,
@@ -1693,21 +1693,21 @@ chart.render();
         }
     }]
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#apex_pie1"),
     options
   );
-
+  
   chart.render();
-
+  
     //apex-pie2
-
+  
   var options = {
     chart: {
         height: 320,
         type: 'donut',
-    },
+    }, 
     stroke: {
       show: true,
       width: 2,
@@ -1741,16 +1741,16 @@ chart.render();
         type: 'gradient'
     }
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#apex_pie2"),
     options
   );
-
+  
   chart.render();
-
+  
     //apex-pie3
-
+  
     var options = {
       chart: {
           height: 320,
@@ -1775,7 +1775,7 @@ chart.render();
         opacity: 1,
         pattern: {
           enabled: true,
-          style: ['verticalLines', 'squares', 'horizontalLines', 'circles','slantedLines'],
+          style: ['verticalLines', 'squares', 'horizontalLines', 'circles','slantedLines'], 
         },
       },
       states: {
@@ -1805,21 +1805,21 @@ chart.render();
           }
       }]
   }
-
+  
   var chart = new ApexCharts(
       document.querySelector("#apex_pie3"),
       options
   );
-
+  
   chart.render();
-
-
-
+  
+   
+  
   // Apex Radialbar Charts
-
+  
   // Apex-radialbar1
-
-
+  
+  
   var options = {
     chart: {
         height: 320,
@@ -1841,27 +1841,27 @@ chart.render();
               value: {
                   fontSize: '16px',
                   color: '#8997bd',
-              },
+              },          
             }
         },
     },
     colors: ["#4a8af6"],
     series: [70],
     labels: ['CRICKET'],
-
+  
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#apex_radialbar1"),
     options
   );
-
+  
   chart.render();
-
-
-
+  
+  
+  
   //Apex-radialbar2
-
+  
   var options = {
     chart: {
         height: 350,
@@ -1871,7 +1871,7 @@ chart.render();
         radialBar: {
           track: {
               background: '#b9c1d4',
-              opacity: 0.5,
+              opacity: 0.5,            
             },
             dataLabels: {
                 name: {
@@ -1895,20 +1895,20 @@ chart.render();
     },
     series: [44, 55, 67, 83],
     labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
-
+    
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#apex_radialbar2"),
     options
   );
-
+  
   chart.render();
-
-
-
+  
+  
+  
   //Apex-radialbar3
-
+  
   var options = {
     chart: {
         height: 380,
@@ -1920,7 +1920,7 @@ chart.render();
             endAngle: 135,
             track: {
               background: '#b9c1d4',
-              opacity: 0.3,
+              opacity: 0.3,            
             },
             dataLabels: {
                 name: {
@@ -1965,12 +1965,12 @@ chart.render();
         }
     }]
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#apex_radialbar3"),
     options
   );
-
+  
   chart.render();
 
 //
@@ -2148,5 +2148,6 @@ var spark3 = {
 }
 
 new ApexCharts(document.querySelector("#spark3"), spark3).render();
-
-
+  
+  
+  

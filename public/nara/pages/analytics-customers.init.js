@@ -5,12 +5,12 @@
  */
 
 
-
+ 
  var options = {
   chart: {
     height: 375,
     type: 'line',
-
+   
     toolbar: {
       show: false
     }
@@ -29,11 +29,11 @@
     axisBorder: {
       show: true,
       color: '#bec7e0',
-    },
+    },  
     axisTicks: {
       show: true,
       color: '#bec7e0',
-    },
+    },    
   },
   colors:['#a4b1c3'],
   markers: {

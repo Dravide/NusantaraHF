@@ -13,7 +13,7 @@ var optionsCircle = {
   },
   plotOptions: {
     radialBar: {
-      inverseOrder: true,
+      inverseOrder: true,      
       hollow: {
         margin: 5,
         size: '50%',
@@ -81,3 +81,4 @@ window.setInterval(function () {
 
 }, 3000)
 
+ 

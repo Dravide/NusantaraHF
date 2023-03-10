@@ -18,7 +18,7 @@ const handleChange = function() {
           const parent = document.querySelector('.preview-box');
           parent.innerHTML = `<img class="preview-content" src=${reader.result} />`;
           };
-
+          
           reader.readAsDataURL(uploadedFile);
       }
   };

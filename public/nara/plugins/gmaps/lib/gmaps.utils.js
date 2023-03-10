@@ -35,7 +35,7 @@ GMaps.geocode = function(options) {
   delete options.lat;
   delete options.lng;
   delete options.callback;
-
+  
   this.geocoder.geocode(options, function(results, status) {
     callback(results, status);
   });

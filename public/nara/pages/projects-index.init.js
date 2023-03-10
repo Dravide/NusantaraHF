@@ -20,7 +20,7 @@
              indexAxis: 'x',
              barThickness: 15,
              grouped: true,
-             maxBarThickness: 9,
+             maxBarThickness: 9,  
              barPercentage: 50
          },
          {
@@ -34,10 +34,10 @@
             indexAxis: 'x',
             barThickness: 15,
             grouped: true,
-            maxBarThickness: 9,
+            maxBarThickness: 9,            
         }]
      },
-
+    
      options: {
         maintainAspectRatio: false,
         responsive: true,
@@ -45,7 +45,7 @@
           legend: {
             display: false,
             position: 'top',
-            labels: {
+            labels: {                   
                 color: '#7c8ea7',
             }
           },
@@ -54,7 +54,7 @@
             text: 'Chart.js Bar Chart'
           }
         },
-        scales: {
+        scales: {            
             y: {
                 beginAtZero: true,
                 ticks: {
@@ -63,7 +63,7 @@
                         return '$' + value;
                     },
                     color: '#7c8ea7',
-                },
+                },               
                 grid: {
                     drawBorder: 'border',
                     color: 'rgba(132, 145, 183, 0.15)',
@@ -72,17 +72,17 @@
                 } ,
                 beginAtZero: true,
             },
-            x: {
+            x: {   
               ticks: {
                 color: '#7c8ea7',
-              },
+              },            
                 grid: {
                     display: false,
                     color: 'rgba(132, 145, 183, 0.09)',
                     borderDash: [3],
                     borderColor: 'rgba(132, 145, 183, 0.09)',
-                }
-            }
+                }    
+            }            
          },
     },
  });
@@ -112,7 +112,7 @@ var options = {
       hollow: {
         margin: 5,
         size: '50%',
-        background: 'transparent',
+        background: 'transparent',  
       },
       track: {
         show: false,
@@ -125,7 +125,7 @@ var options = {
             fontSize: '16px',
             color: '#50649c',
         },
-
+        
       }
     },
   },

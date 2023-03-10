@@ -8,7 +8,7 @@
   series: [{
   type: 'column',
   data: [140, 305, 113, 201, 120, 257, 160, 140, 305, 113, 201, 120, 257]
-},
+}, 
 {
   type: 'line',
   data: [230, 142, 135, 227, 103, 122, 216, 230, 142, 135, 227, 103, 122]
@@ -53,7 +53,7 @@ xaxis: {
 grid: {
       row: {
           colors: ['transparent', 'transparent'], // takes an array which will be repeated on columns
-          opacity: 0.2,
+          opacity: 0.2,           
       },
       strokeDashArray: 2.5,
     },
@@ -65,7 +65,7 @@ chartMain.render();
 
 
 var dash_spark_1 = {
-
+    
   chart: {
       type: 'area',
       height: 50,
@@ -104,7 +104,7 @@ var dash_spark_1 = {
 new ApexCharts(document.querySelector("#dash_spark_1"), dash_spark_1).render();
 
 var dash_spark_2 = {
-
+    
   chart: {
       type: 'area',
       height: 50,
@@ -144,7 +144,7 @@ new ApexCharts(document.querySelector("#dash_spark_2"), dash_spark_2).render();
 
 
 var dash_spark_3 = {
-
+    
   chart: {
       type: 'area',
       height: 50,
@@ -183,7 +183,7 @@ var dash_spark_3 = {
 new ApexCharts(document.querySelector("#dash_spark_3"), dash_spark_3).render();
 
 var dash_spark_4 = {
-
+    
   chart: {
       type: 'area',
       height: 50,
@@ -223,12 +223,12 @@ new ApexCharts(document.querySelector("#dash_spark_4"), dash_spark_4).render();
 
 // //Device-widget
 
-
+ 
 var options = {
   chart: {
       height: 255,
       type: 'donut',
-  },
+  }, 
   plotOptions: {
     pie: {
       donut: {
@@ -245,7 +245,7 @@ var options = {
     width: 2,
     colors: ['transparent']
   },
-
+ 
   series: [50, 25, 25,],
   legend: {
     show: true,
@@ -259,7 +259,7 @@ var options = {
   },
   labels: [ "Mobile","Tablet", "Desktop" ],
   colors: ["#2a76f4","rgba(42, 118, 244, .5)","rgba(42, 118, 244, .18)"],
-
+ 
   responsive: [{
       breakpoint: 600,
       options: {
@@ -267,7 +267,7 @@ var options = {
             donut: {
               customScale: 0.2
             }
-          },
+          },        
           chart: {
               height: 240
           },
@@ -283,7 +283,7 @@ var options = {
         }
     }
   }
-
+  
 }
 
 var chart = new ApexCharts(

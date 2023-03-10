@@ -6,4 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
+    protected $fillable = [
+        'nama_kategori',
+        'icon',
+        'slug',
+    ];
+
+    protected $casts = [
+        'created_at'
+    ];
 }

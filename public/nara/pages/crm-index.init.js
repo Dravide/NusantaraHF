@@ -7,7 +7,7 @@
 
    // Performance Report
 
-
+  
    var options = {
     chart: {
         height: 320,
@@ -49,16 +49,16 @@
         name: 'Unique Visits',
         data: [0,45,10,75,35,94,40,115,30,105,65,110]
     }],
-
+  
     xaxis: {
         type: 'month',
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         axisBorder: {
           show: true,
-        },
+        },  
         axisTicks: {
           show: true,
-        },
+        },                  
     },
     fill: {
       type: "gradient",
@@ -69,7 +69,7 @@
         stops: [0, 90, 100]
       }
     },
-
+    
     tooltip: {
         x: {
             format: 'dd/MM/yy HH:mm'
@@ -80,21 +80,21 @@
       horizontalAlign: 'right'
     },
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#crm-dash"),
     options
   );
-
+  
   chart.render();
 
-
+  
 
   var options = {
     chart: {
         height: 205,
         type: 'donut',
-    },
+    }, 
     plotOptions: {
       pie: {
         donut: {
@@ -110,7 +110,7 @@
         width: 2,
         colors: ['transparent']
     },
-
+   
     series: [10, 65, 25,],
     legend: {
         show: false,
@@ -124,7 +124,7 @@
     },
     labels: [ "Sent", "Opened", "Not Opened"],
     colors: ["#fdb5c8", "#2a76f4", "#67c8ff"],
-
+   
     responsive: [{
         breakpoint: 600,
         options: {
@@ -132,7 +132,7 @@
               donut: {
                 customScale: 0.2
               }
-            },
+            },        
             chart: {
                 height: 200
             },
@@ -141,21 +141,21 @@
             },
         }
     }],
-
+  
     tooltip: {
       y: {
           formatter: function (val) {
               return   val + " %"
           }
       }
-    }
+    }  
   }
-
+  
   var chart = new ApexCharts(
     document.querySelector("#email_report"),
     options
   );
-
+  
   chart.render();
 //   var options = {
 //     series: [{
@@ -202,12 +202,12 @@
 //   xaxis: {
 //     type: 'categories',
 //     categories: ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-
+  
 //   },
 //   grid: {
 //     row: {
 //         colors: ['transparent', 'transparent'], // takes an array which will be repeated on columns
-//         opacity: 0.2,
+//         opacity: 0.2,           
 //     },
 //     strokeDashArray: 2.5,
 // },

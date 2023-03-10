@@ -4,7 +4,7 @@
  * Gallery Js
  */
 
-
+ 
 var Shuffle = window.Shuffle;
 
 class Demo {
@@ -41,7 +41,7 @@ class Demo {
     if (!options) {
       return;
     }
-
+    
     const filterButtons = Array.from(options.children);
     const onClick = this._handleFilterClick.bind(this);
     filterButtons.forEach((button) => {
@@ -53,9 +53,9 @@ class Demo {
     const btn = evt.currentTarget;
     const isActive = btn.classList.contains('active');
     const btnGroup = btn.getAttribute('data-group');
-
+    
     this._removeActiveClassFromChildren(btn.parentNode);
-
+    
     let filterGroup;
     if (isActive) {
       btn.classList.remove('active');
@@ -64,7 +64,7 @@ class Demo {
       btn.classList.add('active');
       filterGroup = btnGroup;
     }
-
+    
     this.shuffle.filter(filterGroup);
   }
 
@@ -93,19 +93,19 @@ class Demo {
         button.classList.remove('active');
       }
     });
-
+    
     // Create the sort options to give to Shuffle.
     const { value } = evt.target;
     let options = {};
-
+    
     function sortByDate(element) {
       return element.getAttribute('data-created');
     }
-
+    
     function sortByTitle(element) {
       return element.getAttribute('data-title').toLowerCase();
     }
-
+    
     if (value === 'date-created') {
       options = {
         reverse: true,

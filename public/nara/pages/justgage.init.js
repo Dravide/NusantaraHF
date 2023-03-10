@@ -16,14 +16,14 @@
         gaugeColor: ['rgba(42, 118, 244, .1)'],
         levelColors:['#4c7cf5'],
       }
-
+  
       var gg1 = new JustGage({
         id: 'gg1',
         value: 125,
         title: 'javascript call',
         defaults: dflt
       });
-
+  
       var gg2 = new JustGage({
         id: 'gg2',
         title: 'data-attributes',
@@ -53,8 +53,8 @@
         Counter_2.refresh(getRandomInt(0, 100));
     });
 
-
-
+     
+  
     var Counter = new JustGage({
         id: "Counter",
         value: 40960,
@@ -66,11 +66,11 @@
         gaugeColor: ['rgba(42, 118, 244, .1)'],
         levelColors:['#4c7cf5'],
     });
-
+  
     document.getElementById('Counter_refresh').addEventListener('click', function() {
       Counter.refresh(getRandomInt(1024, 1000000));
     });
-
+  
     var Animation_Events = new JustGage({
       id: 'Animation_Events',
       value: 45,
@@ -97,13 +97,13 @@
         log.innerHTML = log.innerHTML + 'Animation just ended.<br/>';
       }
     });
-
+  
       document.getElementById('Animation_Events_refresh').addEventListener('click', function() {
       Animation_Events.refresh(getRandomInt(0, 100));
     });
-
-
-
+  
+    
+  
     var Custom_wether = new JustGage({
       id: "Custom_wether",
       value: 50,
@@ -127,12 +127,12 @@
           console.log('f: onAnimationEnd()');
       }
     });
-
+  
     document.getElementById('Custom_wether_refresh').addEventListener('click', function() {
       Custom_wether.refresh(getRandomInt(0, 100));
       return false;
     });
-
+  
     font_option = new JustGage({
       id: "font_option",
       title: "Font Options",
@@ -151,11 +151,11 @@
       valueFontColor: "blue",
       valueFontFamily: "Georgia"
     });
-
+  
       document.getElementById('font_option_refresh').addEventListener('click', function() {
         font_option.refresh(getRandomInt(0, 100));
     });
-
+  
     var defs1 = {
       label: "label",
       value: 65,
@@ -173,7 +173,7 @@
       },
       counter: true
     }
-
+  
     var defs2 = {
       label: "label",
       value: 35,
@@ -192,35 +192,35 @@
       counter: true,
       donut: true
     }
-
+  
     var jg1 = new JustGage({
         id: "jg1",
         defaults: defs1
     });
-
+  
     var jg2 = new JustGage({
         id: "jg2",
         defaults: defs1
     });
-
+  
     var jg3 = new JustGage({
         id: "jg3",
         defaults: defs1
     });
-
+  
     var jg4 = new JustGage({
         id: "jg4",
         defaults: defs2
     });
-
+  
     var jg5 = new JustGage({
         id: "jg5",
         defaults: defs2
     });
-
+  
     var jg6 = new JustGage({
         id: "jg6",
         defaults: defs2
     });
-
+  
   });

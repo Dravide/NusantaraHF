@@ -5,7 +5,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
       pagination: false,
       arrows    : false,
     } );
-
+  
     var thumbnails = new Splide( '#thumbnail-slider', {
       fixedWidth  : 100,
       fixedHeight : 100,
@@ -21,7 +21,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
         },
       },
     } );
-
+  
     main.sync( thumbnails );
     main.mount();
     thumbnails.mount();

@@ -1,13 +1,13 @@
 /*!
- *
+ * 
  *             jsPDF AutoTable plugin v3.0.5
- *
+ *             
  *             Copyright (c) 2014 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable
  *             Licensed under the MIT License.
  *             http://opensource.org/licenses/mit-license
- *
+ *             
  *             * /if (typeof window === 'object') window.jspdfAutoTableVersion = '" + newVersion + "';/*"
- *
+ *         
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -696,7 +696,7 @@ function printFullRow(row) {
         }
     }
     printRow(row);
-    // Parts of the row is now printed. Time for adding a new page, prune
+    // Parts of the row is now printed. Time for adding a new page, prune 
     // the text and start over
     if (Object.keys(remainingTexts).length > 0) {
         for (var j = 0; j < table.columns.length; j++) {
@@ -791,7 +791,7 @@ function addPage() {
         table.foot.forEach(function (row) { return printRow(row); });
     }
     table.finalY = table.cursor.y;
-    // Add user content just before adding new page ensure it will
+    // Add user content just before adding new page ensure it will 
     // be drawn above other things on the page
     table.callEndPageHooks();
     common_1.addTableBorder();
