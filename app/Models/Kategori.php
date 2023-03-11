@@ -15,4 +15,9 @@ class Kategori extends Model
     protected $casts = [
         'created_at'
     ];
+
+    public function produk()
+    {
+        return $this->belongsToMany(Produk::class);
+    }
 }
