@@ -52,19 +52,11 @@
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
-                                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                            <a href="#" title="Quick View" class="atc" data-toggle="modal" data-id="{{$produks->id}}">
                                                                 <i class="far fa-eye"></i>
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="#" title="Add to Cart" data-toggle="modal" data-target="#add_to_cart_modal">
-                                                                <i class="fas fa-shopping-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                                <i class="far fa-heart"></i></a>
-                                                        </li>
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -126,22 +118,23 @@
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
-                                                <div class="product-hover-action">
+                                                <div class="ltn__product-details-menu-2">
                                                     <ul>
+                                                        <form method="POST" action="{{route('shop.atc')}}">
+                                                            @csrf
+                                                            <input type="hidden" value="" class="idProduk" name="idProduk">
                                                         <li>
-                                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                                <i class="far fa-eye"></i>
-                                                            </a>
+                                                            <div class="cart-plus-minus">
+                                                                <input type="text" value="1" name="qty" class="cart-plus-minus-box">
+                                                            </div>
                                                         </li>
                                                         <li>
-                                                            <a href="#" title="Add to Cart" data-toggle="modal" data-target="#add_to_cart_modal">
+                                                            <button type="submit"  class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-toggle="modal" data-target="#add_to_cart_modal">
                                                                 <i class="fas fa-shopping-cart"></i>
-                                                            </a>
+                                                                <span>ADD TO CART</span>
+                                                            </button>
                                                         </li>
-                                                        <li>
-                                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                                <i class="far fa-heart"></i></a>
-                                                        </li>
+                                                        </form>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -249,5 +242,35 @@
         </div>
     </div>
     <!-- PRODUCT DETAILS AREA END -->
+    @push('js')
+        <script>
+            $(document).on('click', '.atc', function(){
+                var id = $(this).attr('data-id');
+                var url = "{{route('shopRoute')}}/getProduct/";
+                $.ajax({
+                   url: url+id,
+                   type: "GET",
+                    cache: false,
+                    success: function(response){
+                       //Set Value Ajax
+                        $('.product-name').text(response.data.nama_produk);
+                        $('.idProduk').val(response.data.id);
+                        var kategori = response.data.kategori_id;
+                        for(var i = 0; i < kategori.length; i++) {
+                            var cat = kategori[i].nama_kategori;
+                            var toHtml = "<a href='#' id='cat'>"+cat+"</a>";
+                            $('.categories').html(toHtml);
+                        }
+
+                       //open modal
+                        $("#modal-atc").modal("show");
+                    }
+                });
+            });
+        </script>
+
+
+    @endpush
+
 
 @endsection

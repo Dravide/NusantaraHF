@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\main;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kategori;
 use App\Models\Main\Produks;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class singleProduk extends Controller
@@ -24,6 +26,21 @@ class singleProduk extends Controller
             ];
             return view('main.single-product')->with($data);
         }
+    }
+
+    public function getForAjax($id){
+        $getProduk = Produks::where('id', $id)->first();
+        $getProduk->kategori_id = Kategori::whereIn('id', json_decode($getProduk->kategori_id))->get('nama_kategori');
+
+
+
+        return response()->json([
+           'success'=> true,
+            'message'=> 'Berhasil',
+            'data' => $getProduk,
+
+        ]);
+
 
 
     }

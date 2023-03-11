@@ -5,7 +5,10 @@ namespace App\Http\Controllers\main;
 use App\Http\Controllers\Controller;
 use App\Models\Main\Kategoris;
 use App\Models\Main\Produks;
+//use http\Cookie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+
 
 class ShopController extends Controller
 {
@@ -42,6 +45,26 @@ class ShopController extends Controller
             ];
             return view('main.product-list')->with($data);
         }
+
+    }
+
+    public function atc(Request $request){
+        $id = $request->idProduk;
+        $qty = $request->qty;
+        $data = array(
+            'id_produk' => $id,
+            'qty' => $qty
+        );
+        $cart_data[] = $data;
+        $item = json_encode($cart_data);
+        $minute = 60; //48 jam
+        Cookie::queue(Cookie::make("Cart", $item, $minute));
+//        return response()->json(['status'=>'Added to Cart']);
+        $cookie = Cookie::get('Cart');
+        dd($cookie);
+
+
+
 
     }
 }

@@ -40,7 +40,9 @@
 
     @include('main.partial.footer')
 
-    @include('main.partial.modal')
+    @include('components.main.modal-product')
+
+
 
 </div>
 <!-- Body main wrapper end -->
@@ -49,6 +51,9 @@
 <script src="{!! asset('main/js/plugins.js') !!}"></script>
 <!-- Main JS -->
 <script src="{!! asset('main/js/main.js') !!}"></script>
+
+
+@stack('js')
 
 </body>
 </html>
