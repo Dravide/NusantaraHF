@@ -45,8 +45,29 @@
                             class="font-10 text-secondary fw-normal">Unique Dashboard</span></li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">
-                            <i class="ti ti-stack menu-icon text-blue"></i>
+                            <i class="ti ti-home-2 menu-icon text-blue"></i>
                             <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="ti ti-basket menu-icon text-success"></i>
+                            <span>Pemesanan</span>
+                        </a>
+                        {{--                        <span class="badge badge-soft-danger badge-pill">4</span>--}}
+                    </li>
+                    <li class="menu-label mt-0 text-primary font-12 fw-semibold">M<span>aster Data</span><br><span
+                            class="font-10 text-secondary fw-normal">Data Aplikasi</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('kategori.index') }}">
+                            <i class="ti ti-database menu-icon text-info"></i>
+                            <span>Kategori</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('produk.index') }}">
+                            <i class="ti ti-list-numbers menu-icon text-warning"></i>
+                            <span>Produk</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -58,10 +79,10 @@
                         <div class="collapse " id="sidebarAnalytics">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('kategori.index') }}">Kategori</a>
+                                    <a class="nav-link" href="#">Data</a>
                                 </li><!--end nav-item-->
                                 <li class="nav-item">
-                                    <a href="analytics-customers.html" class="nav-link ">Customers</a>
+                                    <a href="analytics-customers.html" class="nav-link ">Produk</a>
                                 </li><!--end nav-item-->
                                 <li class="nav-item">
                                     <a href="analytics-reports.html" class="nav-link ">Reports</a>
