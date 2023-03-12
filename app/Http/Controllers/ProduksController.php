@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdukRequest;
 use App\Models\Kategori;
 use App\Models\Produk;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ProduksController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $produks = Produk::paginate(5);
         foreach ($produks as $produk) {
@@ -18,16 +20,8 @@ class ProduksController extends Controller
         return view('nara.produk.index')->with(compact('produks'));
     }
 
-    public function store(Request $request)
+    public function store(ProdukRequest $request)
     {
-        $request->validate([
-            'nama_produk' => 'required|string|max:255',
-            'harga' => 'required',
-            'stok' => 'required|numeric',
-            'kategori_id' => 'required',
-            'deskripsi' => 'required|string',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
         $imageName = time() . '.' . $request->file('gambar')->getClientOriginalName();
 
         $request->file('gambar')->move(public_path('images'), $imageName);
