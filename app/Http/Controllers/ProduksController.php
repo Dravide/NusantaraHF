@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\ProdukRequest;
+
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Contracts\View\View;
@@ -20,8 +22,10 @@ class ProduksController extends Controller
         return view('nara.produk.index')->with(compact('produks'));
     }
 
+
     public function store(ProdukRequest $request)
     {
+
         $imageName = time() . '.' . $request->file('gambar')->getClientOriginalName();
 
         $request->file('gambar')->move(public_path('images'), $imageName);
