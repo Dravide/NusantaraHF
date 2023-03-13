@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Main\Produks;
+use App\Models\User;
 use Database\Factories\ProductFactory;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,11 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Produks::factory(50)->create();
+//        Produks::factory(50)->create();
 //       \App\Models\Main\Produks::factory(50)->create();
-//         \App\Models\User::factory()->create([
-//             'name' => 'Test User',
-//             'email' => 'test@example.com',
-//         ]);
+        User::factory()->create([
+            'name' => 'Dery Supriady',
+            'email' => 'test@example.com',
+            'username' => 'derysupriady',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

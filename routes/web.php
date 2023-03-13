@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\main\HomepageController;
@@ -34,8 +35,12 @@ Route::group(['prefix' => 'shop'], function () {
     Route::get('{slug}', [ShopController::class, 'kategori']);
 });
 
-Route::group(['prefix' => 'nara'], function () {
-    Route::get('home', HomeController::class)->name('home');
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('getLogin', [AuthController::class, 'login'])->name('getLogin');
+Route::group(['prefix' => 'nara', 'middleware' => 'auth'], function () {
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('logout', [HomeController::class, 'logout'])->name('logout');
     Route::resource('produk', ProduksController::class);
     Route::resource('kategori', KategorisController::class);
 });
