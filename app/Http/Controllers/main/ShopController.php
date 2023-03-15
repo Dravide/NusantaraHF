@@ -5,15 +5,17 @@ namespace App\Http\Controllers\main;
 use App\Http\Controllers\Controller;
 use App\Models\Main\Kategoris;
 use App\Models\Main\Produks;
-//use http\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+
+//use http\Cookie;
 
 
 class ShopController extends Controller
 {
-    public function index(){
-        $getProduk =  Produks::paginate(18);
+    public function index()
+    {
+        $getProduk = Produks::paginate(18);
         $eachPaginate = $getProduk->lastPage();
         $kategoris = Kategoris::get();
         $featuredProduk = Produks::inRandomOrder()->limit(5)->get();
@@ -21,17 +23,18 @@ class ShopController extends Controller
             'produk' => $getProduk,
             'tPage' => $eachPaginate,
             'cat' => $kategoris,
-            'featured' =>$featuredProduk
+            'featured' => $featuredProduk
         ];
 //            dd($getProduk);
         return view('main/product-list')->with($data);
     }
 
-    public function kategori($slug) {
+    public function kategori($slug)
+    {
         $kategori = Kategoris::where('slug', $slug)->first();
         $kategoris = Kategoris::get();
         $hitungKategori = Kategoris::where('slug', $slug)->count();
-        if($hitungKategori == 0) {
+        if ($hitungKategori == 0) {
             return view('main.404');
         } else {
             $getProduk = Produks::where('kategori_id', $kategori->id)->paginate(18);
@@ -41,30 +44,42 @@ class ShopController extends Controller
                 'produk' => $getProduk,
                 'tPage' => $eachPaginate,
                 'cat' => $kategoris,
-                'featured' =>$featuredProduk
+                'featured' => $featuredProduk
             ];
             return view('main.product-list')->with($data);
         }
 
     }
 
-    public function atc(Request $request){
+    public function atc(Request $request)
+    {
+//        dd($request);
         $id = $request->idProduk;
         $qty = $request->qty;
-        $data = array(
+        $data = array([
             'id_produk' => $id,
-            'qty' => $qty
+            'qty' => $qty]
         );
-        $cart_data[] = $data;
-        $item = json_encode($cart_data);
         $minute = 60; //48 jam
-        Cookie::queue(Cookie::make("Cart", $item, $minute));
-//        return response()->json(['status'=>'Added to Cart']);
+        //Cek Cookie yang tersedia
         $cookie = Cookie::get('Cart');
-        dd($cookie);
+//        dd($cookie);
 
+        if ($cookie == null) {
+            $item = json_encode($data);
+            Cookie::queue(Cookie::make("Cart", $item, $minute));
+            return $cookie;
 
+        } else {
+            $item = json_decode($cookie, true);
+            $hasil = array_merge($item, $data);
+            $datas = json_encode($hasil);
+            Cookie::queue(Cookie::make("Cart", $datas, $minute));
+            dd(json_decode($cookie));
 
+        }
 
     }
+
+
 }

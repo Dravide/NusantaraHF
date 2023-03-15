@@ -122,7 +122,7 @@
                                                     <ul>
                                                         <form method="POST" action="{{route('shop.atc')}}">
                                                             @csrf
-                                                            <input type="hidden" value="" class="idProduk" name="idProduk">
+                                                            <input type="hidden" value="{{$produks2->id}}" class="idProduk" name="idProduk">
                                                         <li>
                                                             <div class="cart-plus-minus">
                                                                 <input type="text" value="1" name="qty" class="cart-plus-minus-box">
