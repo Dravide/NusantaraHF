@@ -67,61 +67,30 @@ class ShopController extends Controller
         if ($cookie == null) {
             $item = json_encode($data);
             Cookie::queue(Cookie::make("Cart", $item, $minute));
-            return $cookie;
+            return redirect('shop');
 
         } else {
             $get = jsonq($cookie);
+            $get2 = jsonq($cookie);
             //cek apakah barang tersebut sudah ada
-            $cek = $get->where('id_produk', '=', $id)->count();
+            $cek = $get->where('id_produk', '==', $id)->count();
 
-            if ($cek != 0 ) {
-                //berarti barang sudah ada di cart
-
-                //Memilih data yang isinya merupakan request baru
-                $select = $get->where('id_produk', '!=', $id)->get();
-                $hasil = array_merge(json_decode($select), $data);
-                $datas = json_encode($hasil);
-                Cookie::queue(Cookie::make("Cart", $datas, $minute));
-                return $cookie;
-            } else {
+            if ($cek == 0){
                 $item = json_decode($cookie, true);
                 $hasil = array_merge($item, $data);
                 $datas = json_encode($hasil);
                 Cookie::queue(Cookie::make("Cart", $datas, $minute));
-                return $cookie;
-            };
+                return redirect('shop');
+            } else {
+//                Memilih data yang isinya merupakan request baru
+                $select = $get2->where('id_produk', '!=', $id)->get();
 
+                $hasil = array_merge(json_decode($select, true), $data);
+                $datas = json_encode($hasil);
+                Cookie::queue(Cookie::make("Cart", $datas, $minute));
+                return redirect('shop');
 
-
-
-
-
-
-//            dd([$cookie, $cc]);
-
-
-//            dd($search);
-
-//          dd($length);
-//            $col = array_column($decode, 'id_produk');
-//            $search = array_search($id, $col);
-////            $count = count($search);
-//            dd($search);
-
-//            dd($decode);
-//            foreach ($arrrProduk as $cook) {
-//                echo $cook['id_produk'];
-//            }
-//            dd(json_decode($cookie));
-
-
-            //Main Code
-//            $item = json_decode($cookie, true);
-//            $hasil = array_merge($item, $data);
-//            $datas = json_encode($hasil);
-//            Cookie::queue(Cookie::make("Cart", $datas, $minute));
-
-
+            }
 
 
 
