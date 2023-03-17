@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="site-logo">
-                            <a href="index.html"><img src="main/img/logo.png" alt="Logo"></a>
+                            <a href="index.html"><img src="main/img/Logo.png" alt="Logo"></a>
                         </div>
                     </div>
                     <div class="col header-contact-serarch-column d-none d-lg-block">
@@ -2127,7 +2127,7 @@
                         <div class="footer-widget footer-about-widget">
                             <div class="footer-logo mb-10">
                                 <div class="site-logo">
-                                    <img src="main/img/logo.png" alt="Logo">
+                                    <img src="main/img/logo-1.png" alt="Logo">
                                 </div>
                             </div>
                             <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
