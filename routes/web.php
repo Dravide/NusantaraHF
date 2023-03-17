@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/single-product', fn() => view('main.single-product'));
+Route::get('/cart', [\App\Http\Controllers\main\cartController::class, 'index']);
+Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkout']);
 
 Route::get('/product/{produk}', [singleProduk::class, 'index']);
 

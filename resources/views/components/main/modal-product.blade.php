@@ -54,7 +54,7 @@
                                                 <ul>
                                                     <li>
                                                         <div class="cart-plus-minus">
-                                                            <input type="text" value="02" name="qty" class="cart-plus-minus-box">
+                                                            <input type="text" value="1" name="qty" class="cart-plus-minus-box">
                                                         </div>
                                                     </li>
                                                     <li>

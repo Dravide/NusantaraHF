@@ -5,6 +5,7 @@ namespace App\Http\Controllers\main;
 use App\Http\Controllers\Controller;
 use App\Models\Main\Kategoris;
 use App\Models\Main\Produks;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 //use http\Cookie;
@@ -53,11 +54,13 @@ class ShopController extends Controller
     public function atc(Request $request)
     {
 //        dd($request);
+        $getDetail = Produk::find($request->idProduk);
         $id = $request->idProduk;
         $qty = $request->qty;
         $data = array([
             'id_produk' => $id,
-            'qty' => $qty]
+            'qty' => $qty,
+            'harga' => $getDetail->harga]
         );
         $minute = 60; //48 jam
         //Cek Cookie yang tersedia
@@ -67,61 +70,30 @@ class ShopController extends Controller
         if ($cookie == null) {
             $item = json_encode($data);
             Cookie::queue(Cookie::make("Cart", $item, $minute));
-            return $cookie;
+            return redirect('shop');
 
         } else {
             $get = jsonq($cookie);
+            $get2 = jsonq($cookie);
             //cek apakah barang tersebut sudah ada
-            $cek = $get->where('id_produk', '=', $id)->count();
+            $cek = $get->where('id_produk', '==', $id)->count();
 
-            if ($cek != 0 ) {
-                //berarti barang sudah ada di cart
-
-                //Memilih data yang isinya merupakan request baru
-                $select = $get->where('id_produk', '!=', $id)->get();
-                $hasil = array_merge(json_decode($select), $data);
-                $datas = json_encode($hasil);
-                Cookie::queue(Cookie::make("Cart", $datas, $minute));
-                return $cookie;
-            } else {
+            if ($cek == 0){
                 $item = json_decode($cookie, true);
                 $hasil = array_merge($item, $data);
                 $datas = json_encode($hasil);
                 Cookie::queue(Cookie::make("Cart", $datas, $minute));
-                return $cookie;
-            };
+                return redirect('shop');
+            } else {
+//                Memilih data yang isinya merupakan request baru
+                $select = $get2->where('id_produk', '!=', $id)->get();
 
+                $hasil = array_merge(json_decode($select, true), $data);
+                $datas = json_encode($hasil);
+                Cookie::queue(Cookie::make("Cart", $datas, $minute));
+                return redirect('shop');
 
-
-
-
-
-
-//            dd([$cookie, $cc]);
-
-
-//            dd($search);
-
-//          dd($length);
-//            $col = array_column($decode, 'id_produk');
-//            $search = array_search($id, $col);
-////            $count = count($search);
-//            dd($search);
-
-//            dd($decode);
-//            foreach ($arrrProduk as $cook) {
-//                echo $cook['id_produk'];
-//            }
-//            dd(json_decode($cookie));
-
-
-            //Main Code
-//            $item = json_decode($cookie, true);
-//            $hasil = array_merge($item, $data);
-//            $datas = json_encode($hasil);
-//            Cookie::queue(Cookie::make("Cart", $datas, $minute));
-
-
+            }
 
 
 
