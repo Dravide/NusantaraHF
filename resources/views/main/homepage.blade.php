@@ -478,7 +478,7 @@
                 <div class="col-lg-9">
                     <div class="ltn__slide-active-2 slick-slide-arrow-1 slick-slide-dots-1">
                         <!-- ltn__slide-item -->
-                        <div class="ltn__slide-item ltn__slide-item-10 section-bg-1 bg-image" data-bg="img/slider/61.jpg">
+                        <div class="ltn__slide-item ltn__slide-item-10 section-bg-1 bg-image" data-bg="{{asset('main/img/slider/61.jpg')}}">
                             <div class="ltn__slide-item-inner">
                                 <div class="container">
                                     <div class="row">

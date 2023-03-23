@@ -5,6 +5,7 @@ namespace App\Http\Controllers\main;
 use App\Http\Controllers\Controller;
 use App\Models\Main\Kategoris;
 use App\Models\Main\Produks;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 //use http\Cookie;
@@ -53,11 +54,13 @@ class ShopController extends Controller
     public function atc(Request $request)
     {
 //        dd($request);
+        $getDetail = Produk::find($request->idProduk);
         $id = $request->idProduk;
         $qty = $request->qty;
         $data = array([
             'id_produk' => $id,
-            'qty' => $qty]
+            'qty' => $qty,
+            'harga' => $getDetail->harga]
         );
         $minute = 60; //48 jam
         //Cek Cookie yang tersedia

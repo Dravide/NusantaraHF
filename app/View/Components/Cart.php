@@ -20,7 +20,9 @@ class Cart extends Component
         $cart = Jsonq($cookie);
         $data = $cart->get();
         $array = array();
+
 foreach($data as $hasil){
+
             $array['data'][] = Produk::find($hasil->id_produk);
         }
 //        dd($array);
