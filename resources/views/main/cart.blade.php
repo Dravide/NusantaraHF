@@ -10,8 +10,12 @@
                             <form method="POST" action="">
                                 @csrf
                             <!-- card -->
-                            <div class="input-item input-item-name ltn__custom-icon">
-                                <input type="text" name="nama" placeholder="Nama">
+                                <input type="hidden" name="kode" value="{{$uniq}}">
+                            <div class="input-item input-item-name ltn__custom-icon ">
+                                <input type="text" name="nama" placeholder="Nama" class="@error('nama') is-invalid @enderror ">
+                                @error('nama')
+                                {{ $message }}
+                                @enderror
                             </div>
                             <div class="input-item input-item-phone ltn__custom-icon">
                                 <input type="text" name="wa" placeholder="Whatsapp">
@@ -35,18 +39,24 @@
                             <tbody>
                             @if($cart == null)
                                 <tr>
-                                    <td><strong>Order Total</strong></td>
-                                    <td><strong>0</strong></td>
+                                    <strong>Your Cart is Empty</strong>
+
                                 </tr>
 
                             @else
                                 @foreach($cart as $item)
                                     @foreach($item as $oke)
+                                        @if(session()->get('wa') == null)
+                                            <?php $harga = $oke['harga']; ?>
+                                        @else
+                                            <?php $harga = $oke['harga_reseller']; ?>
+                                        @endif
 
                                         <tr>
-                                            <td>{{$oke['nama_produk']}} <strong>× {{$oke['qty']}}</strong></td>
-                                            <td>{{$oke['harga'] * $oke['qty']}}</td>
+                                            <td>{{$oke['nama_produk']}} <strong>@ {{$oke['qty']}} x {{$harga}} </strong></td>
+                                            <td>¥{{$harga * $oke['qty']}}</td>
                                         </tr>
+                                        <?php ?>
 
                                     @endforeach
                                 @endforeach
@@ -54,8 +64,12 @@
 
 
                             <tr>
+                                <td><strong>Tax (8%)</strong></td>
+                                <td><strong>¥{{$pajak}}</strong></td>
+                            </tr>
+                            <tr>
                                 <td><strong>Order Total</strong></td>
-                                <td><strong>{{$total}}</strong></td>
+                                <td><strong>¥{{$total}}</strong></td>
                             </tr>
                             </tbody>
                         </table>

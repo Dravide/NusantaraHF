@@ -21,17 +21,6 @@
                                     <span>Showing 1–12 of {{$produk->total()}}</span>
                                 </div>
                             </li>
-{{--                            <li>--}}
-{{--                                <div class="short-by text-center">--}}
-{{--                                    <select class="nice-select">--}}
-{{--                                        <option>Default Sorting</option>--}}
-{{--                                        <option>Sort by popularity</option>--}}
-{{--                                        <option>Sort by new arrivals</option>--}}
-{{--                                        <option>Sort by price: low to high</option>--}}
-{{--                                        <option>Sort by price: high to low</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -43,7 +32,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('main/img/product/1.png')}}" alt="#"></a>
+                                                <a href="product-details.html"><img src="{{route('rootRoute')}}/images/{{$produks->gambar}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -66,14 +55,19 @@
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                         <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                        <li><a href="#"><i class="far fa-star"></i></a></li>
+
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">{{$produks->nama_produk}}</a></h2>
+                                                <h2 class="product-title"><a href="{{route('single')}}/{{$produks->id}}">{{$produks->nama_produk}}</a></h2>
                                                 <div class="product-price">
-                                                    <span>$149.00</span>
-                                                    <del>$162.00</del>
+                                                    @if(session()->get('wa') == null)
+                                                        <span>¥{{$produks->harga}}</span>
+                                                    @else
+                                                        <span>¥{{$produks->harga_reseller}}</span>
+                                                        <del>¥{{$produks->harga}}</del>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +87,7 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('main/img/product/1.png')}}" alt="#"></a>
+                                                <a href="{{route('single')}}/{{$produks2->id}}"><img src="{{route('rootRoute')}}/images/{{$produks2->gambar}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -101,7 +95,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">{{$produks2->nama_produk}}</a></h2>
+                                                <h2 class="product-title"><a href="{{route('single')}}/{{$produks2->id}}">{{$produks2->nama_produk}}</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -112,11 +106,15 @@
                                                     </ul>
                                                 </div>
                                                 <div class="product-price">
-                                                    <span>$165.00</span>
-                                                    <del>$1720.00</del>
+                                                    @if(session()->get('wa') == null)
+                                                        <span>¥{{$produks2->harga}}</span>
+                                                    @else
+                                                        <span>¥{{$produks2->harga_reseller}}</span>
+                                                        <del>¥{{$produks2->harga}}</del>
+                                                    @endif
                                                 </div>
-                                                <div class="product-brief">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
+                                                <div class="product-brief" id="product-brief">
+{{--                                                    {{$produks2->deskripsi}}--}}
                                                 </div>
                                                 <div class="ltn__product-details-menu-2">
                                                     <ul>
@@ -141,19 +139,7 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                    <!-- ltn__product-item -->
 
-                                    <!-- ltn__product-item -->
-
-                                    <!-- ltn__product-item -->
-
-                                    <!-- ltn__product-item -->
-
-                                    <!-- ltn__product-item -->
-
-                                    <!-- ltn__product-item -->
-
-                                    <!--  -->
                                 </div>
                             </div>
                         </div>
@@ -192,7 +178,7 @@
                             <h4 class="ltn__widget-title ltn__widget-title-border">Product categories</h4>
                             <ul>
                                 @foreach($cat as $cat)
-                                <li><a href="#">{{$cat->nama_kategori}} <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="{{route('shopRoute')}}/{{$cat->slug}}">{{$cat->nama_kategori}} <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -205,7 +191,7 @@
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{asset('main/img/product/1.png')}}" alt="#"></a>
+                                            <a href="{{route('single')}}/{{$featured->id}}"><img src="{{route('rootRoute')}}/images/{{$featured->gambar}}" alt="#"></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -214,13 +200,18 @@
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
+
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">{{$featured->nama_produk}}</a></h6>
+                                            <h6><a href="{{route('single')}}/{{$featured->id}}">{{$featured->nama_produk}}</a></h6>
                                             <div class="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
+                                                @if(session()->get('wa') == null)
+                                                    <span>¥{{$featured->harga}}</span>
+                                                @else
+                                                    <span>¥{{$featured->harga_reseller}}</span>
+                                                    <del>¥{{$featured->harga}}</del>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -252,9 +243,13 @@
                    type: "GET",
                     cache: false,
                     success: function(response){
-                       //Set Value Ajax
+                        //Set Value Ajax
+                        var gambar = "{{route('rootRoute')}}/images/";
                         $('.product-name').text(response.data.nama_produk);
+                        $('.harga-asli').text('¥'+response.data.harga);
+                        $('.harga-reseller').text('¥'+response.data.harga_reseller);
                         $('.idProduk').val(response.data.id);
+                        $('.gambar_produk').attr('src', gambar+response.data.gambar);
                         var kategori = response.data.kategori_id;
                         for(var i = 0; i < kategori.length; i++) {
                             var cat = kategori[i].nama_kategori;
@@ -268,6 +263,7 @@
                 });
             });
         </script>
+
 
 
     @endpush
