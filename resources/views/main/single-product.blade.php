@@ -11,8 +11,8 @@
                                 <div class="ltn__shop-details-img-gallery">
                                     <div class="ltn__shop-details-large-img">
                                         <div class="single-large-img">
-                                            <a href="{{asset('/main/img/product/1.png')}}" data-rel="lightcase:myCollection">
-                                                <img src="{{asset('main/img/product/1.png')}}" alt="Image">
+                                            <a href="{{route('rootRoute')}}/images/{{$produk->gambar}}" data-rel="lightcase:myCollection">
+                                                <img src="{{route('rootRoute')}}/images/{{$produk->gambar}}" alt="Image">
                                             </a>
                                         </div>
 
@@ -34,7 +34,7 @@
                                     </div>
                                     <h3>{{$produk->nama_produk}}</h3>
                                     <div class="product-price">
-                                        <span>$49.00</span>
+                                        <span>¥{{$produk->harga}}</span>
                                         <del>$65.00</del>
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1">
@@ -51,19 +51,23 @@
                                         </ul>
                                     </div>
                                     <div class="ltn__product-details-menu-2">
-                                        <ul>
-                                            <li>
-                                                <div class="cart-plus-minus">
-                                                    <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-toggle="modal" data-target="#add_to_cart_modal">
-                                                    <i class="fas fa-shopping-cart"></i>
-                                                    <span>ADD TO CART</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <form method="POST" action="{{route('shop.atc')}}">
+                                            @csrf
+                                            <input type="hidden" value="{{$produk->id}}" class="idProduk" name="idProduk">
+                                            <ul>
+                                                <li>
+                                                    <div class="cart-plus-minus">
+                                                        <input type="text" value="1" name="qty" class="cart-plus-minus-box">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <button type="submit" class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-toggle="modal" data-target="#add_to_cart_modal">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                        <span>ADD TO CART</span>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </form>
                                     </div>
 
                                     <hr>
@@ -114,7 +118,7 @@
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{asset('main/img/product/1.png')}}" alt="#"></a>
+                                            <a href="product-details.html"><img src="{{route('rootRoute')}}/images/{{$featured->gambar}}" alt="#"></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -166,7 +170,7 @@
                 <div class="col-lg-12">
                     <div class="ltn__product-item ltn__product-item-3 text-center">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="{{asset('main/img/product/7.png')}}" alt="#"></a>
+                            <a href="product-details.html"><img src="{{route('rootRoute')}}/images/{{$related->gambar}}" alt="#"></a>
                             <div class="product-badge">
                                 <ul>
                                     <li class="sale-badge">New</li>

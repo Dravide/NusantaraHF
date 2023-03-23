@@ -21,12 +21,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [HomepageController::class, 'index']);
+Route::get('/', [HomepageController::class, 'index'])->name('rootRoute');
 Route::get('/single-product', fn() => view('main.single-product'));
 Route::get('/cart', [\App\Http\Controllers\main\cartController::class, 'index']);
 Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkout']);
 
 Route::get('/product/{produk}', [singleProduk::class, 'index']);
+Route::get('/product/', [singleProduk::class, 'index'])->name('single');
+
+Route::get('/login-reseller', fn() => view('main.login'));
+Route::get('/register-reseller', fn() => view('main.register'));
+Route::post('/login-reseller-auth', [AuthController::class, 'loginReseller'])->name('loginReseller');
+Route::get('/cekSession', [AuthController::class, 'cekSession']);
 
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shopRoute');
@@ -40,7 +46,7 @@ Route::group(['prefix' => 'shop'], function () {
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('getLogin', [AuthController::class, 'login'])->name('getLogin');
-Route::group(['prefix' => 'nara', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'nara'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [HomeController::class, 'logout'])->name('logout');
     Route::resource('produk', ProduksController::class);

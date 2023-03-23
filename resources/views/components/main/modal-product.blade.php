@@ -16,7 +16,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="modal-product-img">
-                                            <img src="{{asset('main/img/product/4.png')}}" alt="#">
+                                            <img src="{{asset('main/img/product/4.png')}}" class="gambar_produk" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
@@ -26,9 +26,9 @@
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                     <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
+
                                                 </ul>
                                             </div>
                                             <h3 class="product-name"></h3>

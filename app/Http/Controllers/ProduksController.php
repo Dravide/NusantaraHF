@@ -29,10 +29,12 @@ class ProduksController extends Controller
         $imageName = time() . '.' . $request->file('gambar')->getClientOriginalName();
 
         $request->file('gambar')->move(public_path('images'), $imageName);
+//        dd($request);
 
         Produk::create([
             'nama_produk' => $request->nama_produk,
-            'harga' => str_replace(array("Rp ", "."), "", $request->harga),
+            'harga' => str_replace(array("¥", "."), "", $request->harga),
+            'harga_reseller' => str_replace(array("¥", "."), "", $request->harga_reseller),
             'stok' => $request->stok,
             'kategori_id' => json_encode($request->kategori_id),
             'deskripsi' => $request->deskripsi,
