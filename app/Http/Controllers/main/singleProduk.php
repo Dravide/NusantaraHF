@@ -14,11 +14,12 @@ class singleProduk extends Controller
         $getProduct = Produks::where('id', $produk)->first();
         $count = Produks::where('id', $produk)->count();
         $featuredProduk = Produks::inRandomOrder()->limit(5)->get();
-        $catID = $getProduct->kategori_id;
-        $relatedProduk = Produks::where('kategori_id', $catID)->get();
+
         if ($count == 0) {
             return view('main.404');
         } else {
+            $catID = $getProduct->kategori_id;
+            $relatedProduk = Produks::where('kategori_id', $catID)->get();
             $data = [
                 'produk' => $getProduct,
                 'featured' => $featuredProduk,

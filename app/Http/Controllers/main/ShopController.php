@@ -37,7 +37,8 @@ class ShopController extends Controller
         if ($hitungKategori == 0) {
             return view('main.404');
         } else {
-            $getProduk = Produks::where('kategori_id', $kategori->id)->paginate(18);
+            $idProduk = $kategori->id;
+            $getProduk = Produks::where('kategori_id', 'like', '%'.$idProduk.'%')->paginate(18);
             $eachPaginate = $getProduk->lastPage();
             $featuredProduk = Produks::inRandomOrder()->limit(5)->get();
             $data = [
@@ -46,6 +47,7 @@ class ShopController extends Controller
                 'cat' => $kategoris,
                 'featured' => $featuredProduk
             ];
+//            dd($getProduk);
             return view('main.product-list')->with($data);
         }
 
@@ -57,6 +59,8 @@ class ShopController extends Controller
         $getDetail = Produk::find($request->idProduk);
         $id = $request->idProduk;
         $qty = $request->qty;
+
+//        dd($id);
         $data = array([
             'id_produk' => $id,
             'qty' => $qty,

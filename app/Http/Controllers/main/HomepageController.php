@@ -14,11 +14,11 @@ class HomepageController extends Controller
         $getKategori = Kategoris::skip(0)->take(7)->get();
         $moreKategori = Kategoris::skip(7)->take(10)->get();
 
-        $sayuran = Produks::where('kategori_id', 1)->get();
-        $buah = Produks::where('kategori_id', 2)->get();
-        $rempah = Produks::where('kategori_id', 4)->orWhere('kategori_id', 10)->get();
-        $daging = Produks::where('kategori_id', 5)->orWhere('kategori_id', 6)->orWhere('kategori_id', 7)->orWhere('kategori_id', 8)->get();
-        $makanan = Produks::where('kategori_id', 3)->orWhere('kategori_id', 10)->get();
+        $sayuran = Produks::where('kategori_id', 'like', '%1%')->get();
+        $buah = Produks::where('kategori_id', 'like', '%2%')->get();
+        $rempah = Produks::where('kategori_id', 'like', '%3%')->get();
+        $daging = Produks::where('kategori_id', 'like', '%4%')->orWhere('kategori_id', 'like', '%6%')->get();
+        $makanan = Produks::where('kategori_id', 'like', '%5%')->orWhere('kategori_id', 'like', '%7%')->get();
 
 
         $data = [
@@ -32,6 +32,7 @@ class HomepageController extends Controller
             'makanan2' => $makanan
         ];
         return view('main.homepage')->with($data);
+//        dd($sayuran);
 
     }
 }
