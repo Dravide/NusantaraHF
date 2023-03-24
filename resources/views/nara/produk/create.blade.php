@@ -53,6 +53,21 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
+
+                                    <label for="hargaReseller" class="form-label">Harga Reseller :</label>
+                                    <input type="text"
+                                           class="form-control @error('harga_reseller') is-invalid @enderror"
+                                           id="hargaReseller"
+                                           name="harga_reseller"
+                                           placeholder="Harga Reseller">
+                                    @error('harga_reseller')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6">
                                     <label for="stok" class="form-label">Stok :</label>
                                     <input type="number"
                                            class="form-control @error('stok') is-invalid @enderror"
@@ -127,7 +142,21 @@
             const currencyMask = IMask(
                 document.getElementById('harga'),
                 {
-                    mask: 'Rp num',
+                    mask: '¥ num',
+                    blocks: {
+                        num: {
+                            // nested masks are available!
+                            mask: Number,
+                            thousandsSeparator: '.'
+                        }
+                    }
+                });
+        </script>
+        <script type="text/javascript">
+            const currencyMask2 = IMask(
+                document.getElementById('hargaReseller'),
+                {
+                    mask: '¥ num',
                     blocks: {
                         num: {
                             // nested masks are available!

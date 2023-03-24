@@ -19,35 +19,34 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
-Route::prefix('{locale}')
-    ->where(['locale', '[a-zA-Z]{2}'])
-    ->middleware('setlocale')
-    ->group(function () {
-Route::get('/', [HomepageController::class, 'index']);
-        Route::get('/shop', [ShopController::class, 'index'])->name('shopRoute');
-        Route::get('/shop/getProduct/{produk}', [singleProduk::class, 'getForAjax'])->name('getForAjax');
-        Route::post('/shop/atc', [ShopController::class, 'atc'])->name('shop.atc');
 
-        Route::group(['prefix' => 'shop'], function () {
-            Route::get('{slug}', [ShopController::class, 'kategori']);
-        });
-});
+
+Route::get('/', [HomepageController::class, 'index'])->name('rootRoute');
 Route::get('/single-product', fn() => view('main.single-product'));
 Route::get('/cart', [\App\Http\Controllers\main\cartController::class, 'index']);
 Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkout']);
 
 Route::get('/product/{produk}', [singleProduk::class, 'index']);
+Route::get('/product/', [singleProduk::class, 'index'])->name('single');
+
+Route::get('/login-reseller', fn() => view('main.login'));
+Route::get('/register-reseller', fn() => view('main.register'));
+Route::post('/login-reseller-auth', [AuthController::class, 'loginReseller'])->name('loginReseller');
+Route::get('/cekSession', [AuthController::class, 'cekSession']);
 
 
+Route::get('/shop', [ShopController::class, 'index'])->name('shopRoute');
+Route::get('/shop/getProduct/{produk}', [singleProduk::class, 'getForAjax'])->name('getForAjax');
+Route::post('/shop/atc', [ShopController::class, 'atc'])->name('shop.atc');
 
+Route::group(['prefix' => 'shop'], function () {
+    Route::get('{slug}', [ShopController::class, 'kategori']);
+});
 
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('getLogin', [AuthController::class, 'login'])->name('getLogin');
-Route::group(['prefix' => 'nara', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'nara'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [HomeController::class, 'logout'])->name('logout');
     Route::resource('produk', ProduksController::class);

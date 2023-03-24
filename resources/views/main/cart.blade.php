@@ -10,6 +10,7 @@
                             <form method="POST" action="">
                                 @csrf
                             <!-- card -->
+                                <input type="hidden" name="kode" value="{{$uniq}}">
                             <div class="input-item input-item-name ltn__custom-icon">
                                 <input type="text" name="nama" placeholder="Nama">
                             </div>
@@ -35,8 +36,8 @@
                             <tbody>
                             @if($cart == null)
                                 <tr>
-                                    <td><strong>Order Total</strong></td>
-                                    <td><strong>0</strong></td>
+                                    <strong>Your Cart is Empty</strong>
+
                                 </tr>
 
                             @else
