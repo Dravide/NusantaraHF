@@ -19,9 +19,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+Route::prefix('{locale}')
+    ->where(['locale', '[a-zA-Z]{2}'])
+    ->middleware('setlocale')
+    ->group(function () {
 Route::get('/', [HomepageController::class, 'index']);
+        Route::get('/shop', [ShopController::class, 'index'])->name('shopRoute');
+        Route::get('/shop/getProduct/{produk}', [singleProduk::class, 'getForAjax'])->name('getForAjax');
+        Route::post('/shop/atc', [ShopController::class, 'atc'])->name('shop.atc');
+
+        Route::group(['prefix' => 'shop'], function () {
+            Route::get('{slug}', [ShopController::class, 'kategori']);
+        });
+});
 Route::get('/single-product', fn() => view('main.single-product'));
 Route::get('/cart', [\App\Http\Controllers\main\cartController::class, 'index']);
 Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkout']);
@@ -29,13 +42,7 @@ Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkou
 Route::get('/product/{produk}', [singleProduk::class, 'index']);
 
 
-Route::get('/shop', [ShopController::class, 'index'])->name('shopRoute');
-Route::get('/shop/getProduct/{produk}', [singleProduk::class, 'getForAjax'])->name('getForAjax');
-Route::post('/shop/atc', [ShopController::class, 'atc'])->name('shop.atc');
 
-Route::group(['prefix' => 'shop'], function () {
-    Route::get('{slug}', [ShopController::class, 'kategori']);
-});
 
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
