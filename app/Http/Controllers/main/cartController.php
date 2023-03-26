@@ -42,6 +42,7 @@ class cartController extends Controller
 //        dd(array_sum($dta));
         $subtotal = array_sum($dta);
 
+
         //Pajak
         $pajak = 8/100 * $subtotal;
 
@@ -50,9 +51,11 @@ class cartController extends Controller
 
         return view('main.cart',['cart' => $array, 'total'=>$total, 'uniq' => $val, 'pajak' => $pajak]);
 
+
     }
 
     public function checkout(Request $request){
+
 
         $request->validate([
             'nama'  => 'required',
@@ -62,6 +65,7 @@ class cartController extends Controller
         [
             'nama' => 'Nama Wajib di isi'
         ]);
+
         $kode = $request->kode;
         $nama = $request->nama;
         $wa = $request->wa;
@@ -112,6 +116,21 @@ class cartController extends Controller
         } else {
             $sesi = "Reseller";
         }
+//        dd(count($cart));
+        foreach ($cart as $item) {
+            $keranjang[] = $item['id_produk'];
+        }
+//        dd($keranjang);
+
+        $insert = transaksi::insert([
+           'kode_unik'=>$kode,
+           'nama'=>$nama,
+           'alamat'=>$alamat,
+           'wa'=>$wa,
+            'product_id' => json_encode($keranjang),
+            'status' => 0
+
+        ]);
 
         $insert = transaksi::insert([
            'kode_unik'=>$kode,
@@ -145,10 +164,12 @@ $hsl .= "-".$data1['nama_produk']." @ ".$data1['qty']." x ¥".$hrg." = ".$data1[
 ";
             }
         };$hsl .= "
+
 Subtotal = ¥".$subtotal."
 Tax 8% = ¥". $tax ."
 Total = ¥". $total ."
 ".$sesi."  ";
+
         $pesanWA = urlencode($hsl);
         $keWA = "https://api.whatsapp.com/send?phone=6282128363525&text=$pesanWA";
         Cookie::queue(Cookie::forget('Cart'));

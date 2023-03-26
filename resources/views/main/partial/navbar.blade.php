@@ -142,7 +142,9 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
+
                 <a href="{{route('rootRoute')}}"><img src="{{asset('main/img/logo.png')}}" alt="Logo"></a>
+
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
@@ -165,6 +167,7 @@
 
 
                 <li>
+
                     <a href="{{route('rootRoute')}}/cart" title="Shoping Cart">
                             <span class="utilize-btn-icon">
                                 <i class="fas fa-shopping-cart"></i>

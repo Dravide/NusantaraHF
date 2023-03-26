@@ -60,11 +60,13 @@ class ShopController extends Controller
         $id = $request->idProduk;
         $qty = $request->qty;
 
+
         if(session()->get('wa') == null) {
             $hrg = $getDetail->harga;
         } else {
             $hrg = $getDetail->harga_reseller;
         }
+
 
 //        dd($id);
         $data = array([
