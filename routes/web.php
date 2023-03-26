@@ -30,8 +30,12 @@ Route::get('/product/{produk}', [singleProduk::class, 'index']);
 Route::get('/product/', [singleProduk::class, 'index'])->name('single');
 
 Route::get('/login-reseller', fn() => view('main.login'));
-Route::get('/register-reseller', fn() => view('main.register'));
 Route::post('/login-reseller-auth', [AuthController::class, 'loginReseller'])->name('loginReseller');
+Route::get('/register-reseller', [\App\Http\Controllers\pageController::class, 'index']);
+Route::get('/about', [\App\Http\Controllers\pageController::class, 'about']);
+Route::get('/contact', [\App\Http\Controllers\pageController::class, 'contact']);
+
+
 Route::get('/cekSession', [AuthController::class, 'cekSession']);
 
 
@@ -51,6 +55,9 @@ Route::group(['prefix' => 'nara'], function () {
     Route::get('logout', [HomeController::class, 'logout'])->name('logout');
     Route::resource('produk', ProduksController::class);
     Route::resource('kategori', KategorisController::class);
+    Route::get('whatsapp-admin', [HomeController::class, 'whatsapp']);
+    Route::post('aktifkanWA', [HomeController::class, 'aktifkanwa']);
+    Route::post('tambahwa', [HomeController::class, 'tambahwa']);
 });
 
 // Clearing Laravel Configuration Cache

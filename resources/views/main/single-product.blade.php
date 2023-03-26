@@ -34,12 +34,14 @@
                                     </div>
                                     <h3>{{$produk->nama_produk}}</h3>
                                     <div class="product-price">
+
                                         @if(session()->get('wa') == null)
                                             <span>¥{{$produk->harga}}</span>
                                         @else
                                             <span>¥{{$produk->harga_reseller}}</span>
                                             <del>¥{{$produk->harga}}</del>
                                         @endif
+
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1">
                                         <ul>

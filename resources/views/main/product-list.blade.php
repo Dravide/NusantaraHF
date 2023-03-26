@@ -62,12 +62,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="{{route('single')}}/{{$produks->id}}">{{$produks->nama_produk}}</a></h2>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$produks->harga}}</span>
                                                     @else
                                                         <span>¥{{$produks->harga_reseller}}</span>
                                                         <del>¥{{$produks->harga}}</del>
                                                     @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -106,12 +108,14 @@
                                                     </ul>
                                                 </div>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$produks2->harga}}</span>
                                                     @else
                                                         <span>¥{{$produks2->harga_reseller}}</span>
                                                         <del>¥{{$produks2->harga}}</del>
                                                     @endif
+
                                                 </div>
                                                 <div class="product-brief" id="product-brief">
 {{--                                                    {{$produks2->deskripsi}}--}}
@@ -191,7 +195,9 @@
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
+
                                             <a href="{{route('single')}}/{{$featured->id}}"><img src="{{route('rootRoute')}}/images/{{$featured->gambar}}" alt="#"></a>
+
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -206,12 +212,14 @@
                                             </div>
                                             <h6><a href="{{route('single')}}/{{$featured->id}}">{{$featured->nama_produk}}</a></h6>
                                             <div class="product-price">
+
                                                 @if(session()->get('wa') == null)
                                                     <span>¥{{$featured->harga}}</span>
                                                 @else
                                                     <span>¥{{$featured->harga_reseller}}</span>
                                                     <del>¥{{$featured->harga}}</del>
                                                 @endif
+
                                             </div>
                                         </div>
                                     </div>

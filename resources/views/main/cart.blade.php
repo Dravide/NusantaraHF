@@ -11,11 +11,13 @@
                                 @csrf
                             <!-- card -->
                                 <input type="hidden" name="kode" value="{{$uniq}}">
+
                             <div class="input-item input-item-name ltn__custom-icon ">
                                 <input type="text" name="nama" placeholder="Nama" class="@error('nama') is-invalid @enderror ">
                                 @error('nama')
                                 {{ $message }}
                                 @enderror
+
                             </div>
                             <div class="input-item input-item-phone ltn__custom-icon">
                                 <input type="text" name="wa" placeholder="Whatsapp">

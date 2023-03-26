@@ -159,12 +159,10 @@
                                 <li>
                                     <!-- mini-cart 2 -->
                                     <div class="mini-cart-icon mini-cart-icon-2">
-                                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
+                                        <a href="{{route('rootRoute')}}/cart" class="">
                                             <span class="mini-cart-icon">
                                                 <i class="icon-shopping-cart"></i>
-                                                <sup>2</sup>
                                             </span>
-                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">$89.25</span></h6>
                                         </a>
                                     </div>
                                 </li>
@@ -191,7 +189,7 @@
                                     <ul>
                                         <li class="menu-icon"><a href="{{route('rootRoute')}}">Home</a></li>
                                         <li class="menu-icon"><a href="{{route('shopRoute')}}">Shop</a></li>
-                                        <li class="menu-icon"><a href="{{route('rootRoute')}}/about">About</a></li>
+                                        <li class="menu-icon"><a href="{{route('rootRoute')}}/about">Get Promo</a></li>
                                         <li class="menu-icon"><a href="{{route('rootRoute')}}/contact">Contact</a></li>
 
                                     </ul>
@@ -229,34 +227,18 @@
                 <ul>
                     <li class="menu-icon"><a href="{{route('rootRoute')}}">Home</a></li>
                     <li class="menu-icon"><a href="{{route('shopRoute')}}">Shop</a></li>
-                    <li class="menu-icon"><a href="{{route('rootRoute')}}/about">About</a></li>
+                    <li class="menu-icon"><a href="{{route('rootRoute')}}/about">Get Promo</a></li>
                     <li class="menu-icon"><a href="{{route('rootRoute')}}/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
                 <ul>
+
                     <li>
-                        <a href="account.html" title="My Account">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-user"></i>
-                            </span>
-                            My Account
-                        </a>
-                    </li>
-                    <li>
-                        <a href="wishlist.html" title="Wishlist">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-heart"></i>
-                                <sup>3</sup>
-                            </span>
-                            Wishlist
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cart.html" title="Shoping Cart">
+                        <a href="{{route('rootRoute')}}/cart" title="Shoping Cart">
                             <span class="utilize-btn-icon">
                                 <i class="fas fa-shopping-cart"></i>
-                                <sup>5</sup>
+
                             </span>
                             Shoping Cart
                         </a>
@@ -427,7 +409,7 @@
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2--- text-center">
                         <!-- <h6 class="section-subtitle ltn__secondary-color">// Cars</h6> -->
-                        <h1 class="section-title">Our Products</h1>
+                        <h1 class="section-title">{{ __('messages.welcome') }}</h1>
                         <p>Tersedia berbagai macam produk pangan dengan berbagai macam kategori produk.</p>
                     </div>
                     <div class="ltn__tab-menu ltn__tab-menu-2 ltn__tab-menu-top-right-- text-uppercase text-center">
@@ -478,12 +460,14 @@
                                                     </div>
                                                     <h2 class="product-title"><a href="product-details.html">{{$sayuran->nama_produk}}</a></h2>
                                                     <div class="product-price">
+
                                                         @if(session()->get('wa') == null)
                                                             <span>¥{{$sayuran->harga}}</span>
                                                         @else
                                                             <span>¥{{$sayuran->harga_reseller}}</span>
                                                             <del>¥{{$sayuran->harga}}</del>
                                                         @endif
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -535,12 +519,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="product-details.html">{{$buah->nama_produk}}</a></h2>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$buah->harga}}</span>
                                                     @else
                                                         <span>¥{{$buah->harga_reseller}}</span>
                                                         <del>¥{{$buah->harga}}</del>
                                                     @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -590,12 +576,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="product-details.html">{{$rempah->nama_produk}}</a></h2>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$rempah->harga}}</span>
                                                     @else
                                                         <span>¥{{$rempah->harga_reseller}}</span>
                                                         <del>¥{{$rempah->harga}}</del>
                                                     @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -645,12 +633,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="product-details.html">{{$daging->nama_produk}}</a></h2>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$daging->harga}}</span>
                                                     @else
                                                         <span>¥{{$daging->harga_reseller}}</span>
                                                         <del>¥{{$daging->harga}}</del>
                                                     @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -700,12 +690,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="product-details.html">{{$makanan->nama_produk}}</a></h2>
                                                 <div class="product-price">
+
                                                     @if(session()->get('wa') == null)
                                                         <span>¥{{$makanan->harga}}</span>
                                                     @else
                                                         <span>¥{{$makanan->harga_reseller}}</span>
                                                         <del>¥{{$makanan->harga}}</del>
                                                     @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -865,12 +857,14 @@
                             </div>
                             <h2 class="product-title"><a href="product-details.html">{{$makanan2->nama_produk}}</a></h2>
                             <div class="product-price">
+
                                 @if(session()->get('wa') == null)
                                     <span>¥{{$makanan2->harga}}</span>
                                 @else
                                     <span>¥{{$makanan2->harga_reseller}}</span>
                                     <del>¥{{$makanan2->harga}}</del>
                                 @endif
+
                             </div>
                         </div>
                     </div>
@@ -940,7 +934,6 @@
     <!-- BANNER AREA END -->
 
 
-
     <!-- FOOTER AREA START -->
     <footer class="ltn__footer-area  ">
         <div class="footer-top-area  section-bg-1 plr--5">
@@ -990,7 +983,7 @@
                             <h4 class="footer-title">Company</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="{{route('rootRoute')}}/about">About</a></li>
+                                    <li><a href="{{route('rootRoute')}}/about">Get Promo</a></li>
                                     <li><a href="{{route('rootRoute')}}/shop">All Products</a></li>
                                     <li><a href="{{route('rootRoute')}}/contact">Contact us</a></li>
                                 </ul>
@@ -1003,12 +996,12 @@
                             <h4 class="footer-title">Customer Care</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="account.html">My account</a></li>
-                                    <li><a href="wishlist.html">Wish List</a></li>
-                                    <li><a href="order-tracking.html">Order tracking</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">My account</a></li>
+                                    <li><a href="#">Wish List</a></li>
+                                    <li><a href="#">Order tracking</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Contact us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1092,8 +1085,10 @@
                 //Set Value Ajax
                 var gambar = "{{route('rootRoute')}}/images/";
                 $('.product-name').text(response.data.nama_produk);
+
                 $('.harga-asli').text('¥'+response.data.harga);
                 $('.harga-reseller').text('¥'+response.data.harga_reseller);
+
                 $('.idProduk').val(response.data.id);
                 $('.gambar_produk').attr('src', gambar+response.data.gambar);
                 var kategori = response.data.kategori_id;

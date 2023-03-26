@@ -33,6 +33,9 @@
         </div>
         <div class="mini-cart-footer">
             <div class="mini-cart-sub-total">
+                <h5>Pajak (8%): <span>$310.00</span></h5>
+            </div>
+            <div class="mini-cart-sub-total">
                 <h5>Subtotal: <span>$310.00</span></h5>
             </div>
             <div class="btn-wrapper">
