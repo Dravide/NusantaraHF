@@ -34,8 +34,14 @@
                                     </div>
                                     <h3>{{$produk->nama_produk}}</h3>
                                     <div class="product-price">
-                                        <span>¥{{$produk->harga}}</span>
-                                        <del>$65.00</del>
+
+                                        @if(session()->get('wa') == null)
+                                            <span>¥{{$produk->harga}}</span>
+                                        @else
+                                            <span>¥{{$produk->harga_reseller}}</span>
+                                            <del>¥{{$produk->harga}}</del>
+                                        @endif
+
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1">
                                         <ul>
@@ -130,10 +136,14 @@
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">{{$featured->nama_produk}}</a></h6>
+                                            <h6><a href="{{route('single')}}/{{$featured->id}}">{{$featured->nama_produk}}</a></h6>
                                             <div class="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
+                                                @if(session()->get('wa') == null)
+                                                    <span>¥{{$featured->harga}}</span>
+                                                @else
+                                                    <span>¥{{$featured->harga_reseller}}</span>
+                                                    <del>¥{{$featured->harga}}</del>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -205,10 +215,14 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">{{$related->nama_produk}}</a></h2>
+                            <h2 class="product-title"><a href="{{route('single')}}/{{$related->id}}">{{$related->nama_produk}}</a></h2>
                             <div class="product-price">
-                                <span>$149.00</span>
-                                <del>$162.00</del>
+                                @if(session()->get('wa') == null)
+                                    <span>¥{{$related->harga}}</span>
+                                @else
+                                    <span>¥{{$related->harga_reseller}}</span>
+                                    <del>¥{{$related->harga}}</del>
+                                @endif
                             </div>
                         </div>
                     </div>

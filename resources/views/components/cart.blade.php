@@ -9,14 +9,20 @@
             @else
             @foreach($cart as $item)
                 @foreach($item as $oke)
+                        @if(session()->get('wa') == null)
+                                <?php $harga = $oke['harga']; ?>
+                        @else
+                                <?php $harga = $oke['harga_reseller']; ?>
+                        @endif
                         <div class="mini-cart-item clearfix">
                             <div class="mini-cart-img">
-                                <a href="#"><img src="main/img/product/1.png" alt="Image"></a>
+                                <a href="{{route('single')}}/{{$oke->id}}"><img src="{{route('rootRoute')}}/images/{{$oke->gambar}}" alt="Image"></a>
                                 <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
                             </div>
                             <div class="mini-cart-info">
-                                <h6><a href="#">{{ $oke->nama_produk }}</a></h6>
-                                <span class="mini-cart-quantity">1 x $65.00</span>
+                                <h6><a href="{{route('single')}}/{{$oke->id}}">{{ $oke->nama_produk }}</a></h6>
+
+                                <span class="mini-cart-quantity">{{$oke['qty']}} x ${{$harga}}</span>
                             </div>
                         </div>
                 @endforeach

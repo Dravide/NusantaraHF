@@ -47,6 +47,9 @@ class AuthController extends Controller
 
     public function cekSession(){
         $sesi = session()->get('wa');
-        dd($sesi);
+
+        $hsl = 22/7;
+        return $hsl;
+
     }
 }

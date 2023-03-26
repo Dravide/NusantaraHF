@@ -33,8 +33,12 @@
                                             </div>
                                             <h3 class="product-name"></h3>
                                             <div class="product-price">
-                                                <span>$149.00</span>
-                                                <del>$165.00</del>
+                                                @if(session()->get('wa') == null)
+                                                    <span class="harga-asli"></span>
+                                                @else
+                                                    <span class="harga-reseller"></span>
+                                                    <del class="harga-asli"></del>
+                                                @endif
                                             </div>
                                             <div class="modal-product-meta ltn__product-details-menu-1">
                                                 <ul>

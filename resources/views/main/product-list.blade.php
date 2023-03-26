@@ -62,8 +62,14 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="{{route('single')}}/{{$produks->id}}">{{$produks->nama_produk}}</a></h2>
                                                 <div class="product-price">
-                                                    <span>¥{{$produks->harga}}</span>
-                                                    <del>$162.00</del>
+
+                                                    @if(session()->get('wa') == null)
+                                                        <span>¥{{$produks->harga}}</span>
+                                                    @else
+                                                        <span>¥{{$produks->harga_reseller}}</span>
+                                                        <del>¥{{$produks->harga}}</del>
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -102,8 +108,14 @@
                                                     </ul>
                                                 </div>
                                                 <div class="product-price">
-                                                    <span>¥{{$produks2->harga}}</span>
-                                                    <del>$1720.00</del>
+
+                                                    @if(session()->get('wa') == null)
+                                                        <span>¥{{$produks2->harga}}</span>
+                                                    @else
+                                                        <span>¥{{$produks2->harga_reseller}}</span>
+                                                        <del>¥{{$produks2->harga}}</del>
+                                                    @endif
+
                                                 </div>
                                                 <div class="product-brief" id="product-brief">
 {{--                                                    {{$produks2->deskripsi}}--}}
@@ -170,7 +182,7 @@
                             <h4 class="ltn__widget-title ltn__widget-title-border">Product categories</h4>
                             <ul>
                                 @foreach($cat as $cat)
-                                <li><a href="#">{{$cat->nama_kategori}} <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="{{route('shopRoute')}}/{{$cat->slug}}">{{$cat->nama_kategori}} <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -183,7 +195,9 @@
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="{{route('rootRoute')}}/images/{{$featured->gambar}}" alt="#"></a>
+
+                                            <a href="{{route('single')}}/{{$featured->id}}"><img src="{{route('rootRoute')}}/images/{{$featured->gambar}}" alt="#"></a>
+
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -196,10 +210,16 @@
 
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">{{$featured->nama_produk}}</a></h6>
+                                            <h6><a href="{{route('single')}}/{{$featured->id}}">{{$featured->nama_produk}}</a></h6>
                                             <div class="product-price">
-                                                <span>¥{{$featured->harga}}</span>
-                                                <del>$65.00</del>
+
+                                                @if(session()->get('wa') == null)
+                                                    <span>¥{{$featured->harga}}</span>
+                                                @else
+                                                    <span>¥{{$featured->harga_reseller}}</span>
+                                                    <del>¥{{$featured->harga}}</del>
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
@@ -234,6 +254,8 @@
                         //Set Value Ajax
                         var gambar = "{{route('rootRoute')}}/images/";
                         $('.product-name').text(response.data.nama_produk);
+                        $('.harga-asli').text('¥'+response.data.harga);
+                        $('.harga-reseller').text('¥'+response.data.harga_reseller);
                         $('.idProduk').val(response.data.id);
                         $('.gambar_produk').attr('src', gambar+response.data.gambar);
                         var kategori = response.data.kategori_id;

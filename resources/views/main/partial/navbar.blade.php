@@ -6,8 +6,8 @@
                 <div class="col-md-7">
                     <div class="ltn__top-bar-menu">
                         <ul>
-                            <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
-                            <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
+                            <li><a href="#"><i class="icon-placeholder"></i> Shizuoka Ken Fujieda Shi Daitocho </a></li>
+                            <li><a href="mailto:nusantara_japan@yahoo.co.jp"><i class="icon-mail"></i> nusantara_japan@yahoo.co.jp</a></li>
                         </ul>
                     </div>
                 </div>
@@ -21,12 +21,8 @@
                                         <ul>
                                             <li><a href="#" class="dropdown-toggle"><span class="active-currency">English</span></a>
                                                 <ul>
-                                                    <li><a href="#">Arabic</a></li>
-                                                    <li><a href="#">Bengali</a></li>
-                                                    <li><a href="#">Chinese</a></li>
+
                                                     <li><a href="#">English</a></li>
-                                                    <li><a href="#">French</a></li>
-                                                    <li><a href="#">Hindi</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -103,10 +99,12 @@
                             <li>
                                 <a href="#"><i class="icon-user"></i></a>
                                 <ul>
-                                    <li><a href="login.html">Sign in</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="account.html">My Account</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    @if(session()->get('wa') == null)
+                                        <li><a href="login.html">Sign in</a></li>
+                                        <li><a href="register.html">Register</a></li>
+                                    @else
+                                        <li><a href="login.html">Log Out</a></li>
+                                    @endif
                                 </ul>
                             </li>
                         </ul>
@@ -144,7 +142,9 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
-                <a href="index.html"><img src="{{asset('main/img/logo.png')}}" alt="Logo"></a>
+
+                <a href="{{route('rootRoute')}}"><img src="{{asset('main/img/logo.png')}}" alt="Logo"></a>
+
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
@@ -164,16 +164,10 @@
         </div>
         <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
             <ul>
-                <li>
-                    <a href="account.html" title="My Account">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-user"></i>
-                            </span>
-                        My Account
-                    </a>
-                </li>
+
 
                 <li>
+
                     <a href="{{route('rootRoute')}}/cart" title="Shoping Cart">
                             <span class="utilize-btn-icon">
                                 <i class="fas fa-shopping-cart"></i>

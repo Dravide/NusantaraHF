@@ -60,11 +60,19 @@ class ShopController extends Controller
         $id = $request->idProduk;
         $qty = $request->qty;
 
+
+        if(session()->get('wa') == null) {
+            $hrg = $getDetail->harga;
+        } else {
+            $hrg = $getDetail->harga_reseller;
+        }
+
+
 //        dd($id);
         $data = array([
             'id_produk' => $id,
             'qty' => $qty,
-            'harga' => $getDetail->harga]
+            'harga' => $hrg]
         );
         $minute = 60; //48 jam
         //Cek Cookie yang tersedia
