@@ -3,10 +3,12 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategorisController;
+use App\Http\Controllers\main\cartController;
 use App\Http\Controllers\main\HomepageController;
 use App\Http\Controllers\main\ShopController;
 use App\Http\Controllers\main\singleProduk;
 use App\Http\Controllers\ProduksController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +21,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+//Route::get('/', function () {
+//    return redirect(app()->getLocale());
+//});
+//Route::prefix('{locale}')
+//    ->where(['locale' => '[a-zA-Z]{2}'])
+//    ->middleware('setlocale')
+//    ->group(function () {
 Route::get('/', [HomepageController::class, 'index'])->name('rootRoute');
 Route::get('/single-product', fn() => view('main.single-product'));
-Route::get('/cart', [\App\Http\Controllers\main\cartController::class, 'index']);
-Route::post('/cart', [\App\Http\Controllers\main\cartController::class, 'checkout']);
+Route::get('/cart', [cartController::class, 'index'])->name('cartRoute');
+Route::post('/cart', [cartController::class, 'checkout']);
 
 Route::get('/product/{produk}', [singleProduk::class, 'index']);
 Route::get('/product/', [singleProduk::class, 'index'])->name('single');
@@ -43,21 +50,16 @@ Route::group(['prefix' => 'shop'], function () {
     Route::get('{slug}', [ShopController::class, 'kategori']);
 });
 
-
+//    });
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('getLogin', [AuthController::class, 'login'])->name('getLogin');
-Route::group(['prefix' => 'nara'], function () {
+Route::group(['prefix' => 'nara', 'middleware' => 'auth'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::get('logout', [HomeController::class, 'logout'])->name('logout');
     Route::resource('produk', ProduksController::class);
     Route::resource('kategori', KategorisController::class);
+    Route::resource('transaksi', TransaksiController::class);
 });
 
-// Clearing Laravel Configuration Cache
-Route::get('/cc', function() {
-    $exitCode = Artisan::call('config:clear');
-    $exitCode = Artisan::call('cache:clear');
-    $exitCode = Artisan::call('config:cache');
-    return 'DONE'; //Return anything
-});
+
 

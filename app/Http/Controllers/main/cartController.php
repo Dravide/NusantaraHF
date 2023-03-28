@@ -55,8 +55,6 @@ class cartController extends Controller
     }
 
     public function checkout(Request $request){
-
-
         $request->validate([
             'nama'  => 'required',
             'wa'    => 'required',
@@ -77,7 +75,6 @@ class cartController extends Controller
         $array = array();
         foreach($data as $hasil){
             $array['data'][] = array_merge(Produk::find($hasil->id_produk)->toArray(), array('qty' => $hasil->qty, 'subtotal' => $hasil->qty * $hasil->harga));
-
         }
 
         $sub = [];

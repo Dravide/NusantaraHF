@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="site-logo">
-                            <a href="{{route('rootRoute')}}"><img src="main/img/Logo.png" alt="Logo"></a>
+                            <a href="{{route('rootRoute')}}"><img src="{{ asset('main/img/Logo.png') }}" alt="Logo"></a>
                         </div>
                     </div>
                     <div class="col header-contact-serarch-column d-none d-lg-block">
@@ -307,7 +307,7 @@
                     <!-- CATEGORY-MENU-LIST START -->
                     <div class="ltn__category-menu-wrap">
                         <div class="ltn__category-menu-title">
-                            <h2 class="section-bg-1 text-color-white---">categories</h2>
+                            <h2 class="section-bg-1 text-color-white---">{{ __('messages.kategori') }}</h2>
                         </div>
                         <div class="ltn__category-menu-toggle ltn__one-line-active">
                             <ul>
@@ -328,7 +328,7 @@
                                 @endforeach
                                 <li class="ltn__category-menu-more-item-parent">
                                     <a class="rx-default">
-                                        More categories <span class="cat-thumb  icon-plus"></span>
+                                        {{ __('messages.kategori_lainnya') }} <span class="cat-thumb  icon-plus"></span>
                                     </a>
                                     <a class="rx-show">
                                         close menu <span class="cat-thumb  icon-remove"></span>
@@ -449,7 +449,7 @@
 
                                             <div class="ltn__product-item ltn__product-item-3 text-center">
                                                 <div class="product-img">
-                                                    <a href="product-details.html"><img src="{{route('rootRoute')}}/images/{{$sayuran->gambar}}" alt="#"></a>
+                                                    <a href="product-details.html"><img src="{{ asset("images/$sayuran->gambar") }}" alt="#"></a>
                                                     <div class="product-badge">
                                                         <ul>
 {{--                                                            <li class="sale-badge">-19%</li>--}}

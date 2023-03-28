@@ -56,7 +56,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo">
-                            <a href="index.html"><img src="{{asset('main/img/logo-2.png')}}" width="200px" alt="Logo"></a>
+                            <a href="{{route('rootRoute')}}"><img src="{{asset('main/img/logo-2.png')}}" width="200px" alt="Logo"></a>
                         </div>
                     </div>
                 </div>
