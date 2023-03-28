@@ -143,6 +143,11 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'available_locales' => [
+        'en',
+        'jp',
+        'id'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -182,6 +187,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -210,6 +216,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+
     ])->toArray(),
 
 ];
