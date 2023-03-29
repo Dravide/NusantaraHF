@@ -15,7 +15,7 @@ class cartController extends Controller
 {
     public function index(){
         $cookie = Cookie::get('Cart');
-        $uniq = Str::random(4);
+        $uniq = Str::random(5);
         $hitungUniq = transaksi::count();
         $valUniq = $hitungUniq+1;
         $val = $valUniq. $uniq;
