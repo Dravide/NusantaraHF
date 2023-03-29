@@ -100,10 +100,12 @@
                                 <a href="#"><i class="icon-user"></i></a>
                                 <ul>
                                     @if(session()->get('wa') == null)
+
                                         <li><a href="{{route('rootRoute')}}/login-reseller">Sign in</a></li>
                                         <li><a href="{{route('rootRoute')}}/register-reseller">Register</a></li>
                                     @else
                                         <li><a href="{{route('rootRoute')}}/logout">Log Out</a></li>
+
                                     @endif
                                 </ul>
                             </li>

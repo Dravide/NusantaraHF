@@ -1,5 +1,7 @@
 <?php
 return  [
-    'welcome' => 'ヌサンタラハラールフードへようこそ'
+    'welcome' => 'ヌサンタラハラールフードへようこそ',
+    'kategori' => 'カテゴリー',
+    'kategori_lainnya' => 'その他のカテゴリー',
 
 ];
