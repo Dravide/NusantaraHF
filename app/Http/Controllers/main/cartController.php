@@ -57,7 +57,6 @@ class cartController extends Controller
 
     public function checkout(Request $request){
 
-
         $request->validate([
             'nama'  => 'required',
             'wa'    => 'required',
@@ -91,7 +90,20 @@ class cartController extends Controller
                 }
                 $sub[] = $harga;
 
+
             }
+
+
+        }
+
+        $subtotal = array_sum($ttl);
+        $tax = 8/100 * $subtotal;
+        $total = $subtotal + $tax;
+
+        if(session()->get('wa') == null) {
+            $sesi = "";
+        } else {
+            $sesi = "Reseller";
         }
 //        dd(count($cart));
         foreach ($cart as $item) {
@@ -122,6 +134,16 @@ class cartController extends Controller
             $keranjang[] = $item['id_produk'];
         }
 //        dd($keranjang);
+
+        $insert = transaksi::insert([
+           'kode_unik'=>$kode,
+           'nama'=>$nama,
+           'alamat'=>$alamat,
+           'wa'=>$wa,
+            'product_id' => json_encode($keranjang),
+            'status' => 0
+
+        ]);
 
         $insert = transaksi::insert([
            'kode_unik'=>$kode,

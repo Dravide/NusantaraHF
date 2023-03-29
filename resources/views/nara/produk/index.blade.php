@@ -1,5 +1,5 @@
 <x-app-main title="Produk">
-    <x-judul-halaman judul="Produk"/>
+    <x-judul-halaman judul="Produk" />
     <div class="row">
         <div class="col-lg-6">
 
@@ -58,7 +58,7 @@
                                             <a href=""
                                                class="d-inline-block align-middle mb-0 product-name fw-semibold">{{ $produk->nama_produk }}</a>
                                             <br>
-                                            
+
                                         </p>
                                     </td>
                                     <td>
@@ -67,12 +67,19 @@
                                         @endforeach
                                     </td>
                                     <td>{{ $produk->stok }}</td>
-                                    <td>@currency($produk->harga),00</td>
+                                    <td>@currency($produk->harga) / @currency($produk->harga_reseller)</td>
                                     <td><span class="badge badge-soft-purple">Stock</span></td>
                                     <td>
-                                        <a href="#" class="mr-2"><i
+                                        <a href="{{ route('produk.edit', $produk->id) }}" class="mr-2"><i
                                                 class="las la-pen text-secondary font-16 me-1"></i></a>
-                                        <a href="#"><i class="las la-trash-alt text-secondary font-16"></i></a>
+                                        <form method="POST" action="{{ route('produk.destroy', $produk->id) }}"
+                                              class="d-inline">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-link show_confirm"><i
+                                                    class="las la-trash-alt font-16 text-secondary"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -88,4 +95,38 @@
             </div><!--end card-->
         </div> <!-- end col -->
     </div>
+    @push('css')
+        <link href="{{ asset('') }}nara/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('') }}nara/plugins/animate/animate.min.css" rel="stylesheet" type="text/css">
+    @endpush
+    @push('js')
+        <script src="{{ asset('') }}nara/plugins/sweet-alert2/sweetalert2.min.js"></script>
+        <script type="text/javascript">
+            $(".show_confirm").click(function(event) {
+                var form = $(this).closest("form");
+                event.preventDefault();
+                swal.fire({
+                    title: "Apakah Anda Yakin?",
+                    text: "Ingin Menghapus data Kategori ini!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#557ef8",
+                    cancelButtonColor: "#ef4d56",
+                    confirmButtonText: "Ya, Hapus!",
+                    cancelButtonText: "Tidak, Batal!"
+                })
+                    .then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                            Swal.fire(
+                                "Hapus!",
+                                "Kategori Telah Dihapus!",
+                                "success"
+                            );
+                        }
+                    });
+            });
+
+        </script>
+    @endpush
 </x-app-main>

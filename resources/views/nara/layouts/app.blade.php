@@ -17,7 +17,7 @@
     <link href="{{ asset('')}}nara/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('')}}nara/css/icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('')}}nara/css/app.min.css" rel="stylesheet" type="text/css"/>
-{{--    @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('css')
 </head>
 

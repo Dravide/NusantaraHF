@@ -23,7 +23,7 @@ class Cart extends Component
 
 foreach($data as $hasil){
 
-            $array['data'][] = Produk::find($hasil->id_produk);
+            $array['data'][] = array_merge(Produk::find($hasil->id_produk)->toArray(), array('qty' => $hasil->qty, 'subtotal' => $hasil->qty * $hasil->harga));
         }
 //        dd($array);
         return view('components.cart',['cart' => $array]);
