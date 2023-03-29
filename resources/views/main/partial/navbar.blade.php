@@ -66,7 +66,7 @@
                             <div class="ltn__main-menu">
                                 <ul>
                                     <li class="menu-icon"><a href="{{route('rootRoute')}}">Home</a></li>
-                                    <li class="menu-icon"><a href="{{route('rootRoute')}}/about">About</a></li>
+                                    <li class="menu-icon"><a href="{{route('rootRoute')}}/about">Get Promo</a></li>
                                     <li class="menu-icon"><a href="{{route('rootRoute')}}/shop">Shop</a></li>
                                     <li><a href="{{route('rootRoute')}}/contact">Contact</a></li>
                                     <li class="special-link"><a href="{{route('rootRoute')}}/contact">GET A QUOTE</a></li>
@@ -100,10 +100,12 @@
                                 <a href="#"><i class="icon-user"></i></a>
                                 <ul>
                                     @if(session()->get('wa') == null)
-                                        <li><a href="login.html">Sign in</a></li>
-                                        <li><a href="register.html">Register</a></li>
+
+                                        <li><a href="{{route('rootRoute')}}/login-reseller">Sign in</a></li>
+                                        <li><a href="{{route('rootRoute')}}/register-reseller">Register</a></li>
                                     @else
-                                        <li><a href="login.html">Log Out</a></li>
+                                        <li><a href="{{route('rootRoute')}}/logout">Log Out</a></li>
+
                                     @endif
                                 </ul>
                             </li>
@@ -111,9 +113,9 @@
                     </div>
                     <!-- mini-cart -->
                     <div class="mini-cart-icon">
-                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
+                        <a href="{{route('rootRoute')}}/cart" class="">
                             <i class="icon-shopping-cart"></i>
-                            <sup>2</sup>
+                            <sup></sup>
                         </a>
                     </div>
                     <!-- mini-cart -->
@@ -157,7 +159,7 @@
         <div class="ltn__utilize-menu">
             <ul>
                 <li><a href="{{route('rootRoute')}}">Home</a></li>
-                <li><a href="{{route('rootRoute')}}/about">About</a></li>
+                <li><a href="{{route('rootRoute')}}/about">Get Promo</a></li>
                 <li><a href="{{route('rootRoute')}}/shop">Shop</a></li>
                 <li><a href="{{route('rootRoute')}}/contact">Contact</a></li>
             </ul>

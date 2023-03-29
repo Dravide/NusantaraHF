@@ -11,29 +11,8 @@
                     </span>
         </a>
     </div>
-    <div class="sidebar-user-pro media border-end">
-        <div class="position-relative mx-auto">
-            <img src="{{ asset('')}}nara/images/users/user-4.jpg" alt="user" class="rounded-circle thumb-md">
-            <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
-        </div>
-        <div class="media-body ms-2 user-detail align-self-center">
-            <h5 class="font-14 m-0 fw-bold">Mr. Michael Hill </h5>
-            <p class="opacity-50 mb-0">michael.hill@exemple.com</p>
-        </div>
-    </div>
-    <div class="border-end">
-        <ul class="nav nav-tabs menu-tab nav-justified" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#Main" role="tab"
-                   aria-selected="true">M<span>ain</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Extra" role="tab"
-                   aria-selected="false">E<span>xtra</span></a>
-            </li>
-        </ul>
-    </div>
-    <!-- Tab panes -->
+
+
 
     <!--end logo-->
     <div class="menu-content h-100" data-simplebar>
@@ -90,6 +69,12 @@
                             </ul><!--end nav-->
                         </div><!--end sidebarAnalytics-->
                     </li><!--end nav-item-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('produk.index') }}">
+                            <i class="ti ti-list-numbers menu-icon text-warning"></i>
+                            <span>Whatsapp Admin</span>
+                        </a>
+                    </li>
 
 
                 </ul>

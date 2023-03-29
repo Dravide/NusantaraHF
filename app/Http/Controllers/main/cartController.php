@@ -5,6 +5,7 @@ namespace App\Http\Controllers\main;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use App\Models\transaksi;
+use App\Models\whatsapp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
@@ -20,7 +21,7 @@ class cartController extends Controller
         $val = $valUniq. $uniq;
 //        dd($cookie);
         if($cookie == null){
-            return view('main.cart',['cart' => null, 'uniq' => $val, 'total'=>0]);
+            return view('main.cart-empty',['cart' => null, 'uniq' => $val, 'total'=>0]);
         }
         $cart = Jsonq($cookie);
         $data = $cart->get();
@@ -55,6 +56,7 @@ class cartController extends Controller
     }
 
     public function checkout(Request $request){
+
         $request->validate([
             'nama'  => 'required',
             'wa'    => 'required',
@@ -75,6 +77,7 @@ class cartController extends Controller
         $array = array();
         foreach($data as $hasil){
             $array['data'][] = array_merge(Produk::find($hasil->id_produk)->toArray(), array('qty' => $hasil->qty, 'subtotal' => $hasil->qty * $hasil->harga));
+
         }
 
         $sub = [];
@@ -87,7 +90,20 @@ class cartController extends Controller
                 }
                 $sub[] = $harga;
 
+
             }
+
+
+        }
+
+        $subtotal = array_sum($ttl);
+        $tax = 8/100 * $subtotal;
+        $total = $subtotal + $tax;
+
+        if(session()->get('wa') == null) {
+            $sesi = "";
+        } else {
+            $sesi = "Reseller";
         }
 //        dd(count($cart));
         foreach ($cart as $item) {
@@ -139,6 +155,16 @@ class cartController extends Controller
 
         ]);
 
+        $insert = transaksi::insert([
+           'kode_unik'=>$kode,
+           'nama'=>$nama,
+           'alamat'=>$alamat,
+           'wa'=>$wa,
+            'product_id' => json_encode($keranjang),
+            'status' => 0
+
+        ]);
+
 
 
         $hsl =  "
@@ -168,7 +194,9 @@ Total = ¥". $total ."
 ".$sesi."  ";
 
         $pesanWA = urlencode($hsl);
-        $keWA = "https://api.whatsapp.com/send?phone=6282128363525&text=$pesanWA";
+        $waAdmin = whatsapp::where('status', '=', '1')->first();
+        $getWA = $waAdmin->whatsapp;
+        $keWA = "https://api.whatsapp.com/send?phone=$getWA&text=$pesanWA";
         Cookie::queue(Cookie::forget('Cart'));
         return redirect($keWA);
 

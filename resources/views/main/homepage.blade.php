@@ -89,7 +89,9 @@
                 <div class="row">
                     <div class="col">
                         <div class="site-logo">
+
                             <a href="{{route('rootRoute')}}"><img src="{{ asset('main/img/Logo.png') }}" alt="Logo"></a>
+
                         </div>
                     </div>
                     <div class="col header-contact-serarch-column d-none d-lg-block">
@@ -159,12 +161,10 @@
                                 <li>
                                     <!-- mini-cart 2 -->
                                     <div class="mini-cart-icon mini-cart-icon-2">
-                                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
+                                        <a href="{{route('rootRoute')}}/cart" class="">
                                             <span class="mini-cart-icon">
                                                 <i class="icon-shopping-cart"></i>
-                                                <sup>2</sup>
                                             </span>
-                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">$89.25</span></h6>
                                         </a>
                                     </div>
                                 </li>
@@ -191,7 +191,9 @@
                                     <ul>
                                         <li class="menu-icon"><a href="{{route('rootRoute')}}">Home</a></li>
                                         <li class="menu-icon"><a href="{{route('shopRoute')}}">Shop</a></li>
+
                                         <li class="menu-icon"><a href="{{route('rootRoute')}}/about">About</a></li>
+
                                         <li class="menu-icon"><a href="{{route('rootRoute')}}/contact">Contact</a></li>
 
                                     </ul>
@@ -229,34 +231,20 @@
                 <ul>
                     <li class="menu-icon"><a href="{{route('rootRoute')}}">Home</a></li>
                     <li class="menu-icon"><a href="{{route('shopRoute')}}">Shop</a></li>
+
                     <li class="menu-icon"><a href="{{route('rootRoute')}}/about">About</a></li>
+
                     <li class="menu-icon"><a href="{{route('rootRoute')}}/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
                 <ul>
+
                     <li>
-                        <a href="account.html" title="My Account">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-user"></i>
-                            </span>
-                            My Account
-                        </a>
-                    </li>
-                    <li>
-                        <a href="wishlist.html" title="Wishlist">
-                            <span class="utilize-btn-icon">
-                                <i class="far fa-heart"></i>
-                                <sup>3</sup>
-                            </span>
-                            Wishlist
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cart.html" title="Shoping Cart">
+                        <a href="{{route('rootRoute')}}/cart" title="Shoping Cart">
                             <span class="utilize-btn-icon">
                                 <i class="fas fa-shopping-cart"></i>
-                                <sup>5</sup>
+
                             </span>
                             Shoping Cart
                         </a>
@@ -1001,7 +989,9 @@
                             <h4 class="footer-title">Company</h4>
                             <div class="footer-menu">
                                 <ul>
+
                                     <li><a href="{{route('rootRoute')}}/about">About</a></li>
+
                                     <li><a href="{{route('rootRoute')}}/shop">All Products</a></li>
                                     <li><a href="{{route('rootRoute')}}/contact">Contact us</a></li>
                                 </ul>
@@ -1014,12 +1004,12 @@
                             <h4 class="footer-title">Customer Care</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="account.html">My account</a></li>
-                                    <li><a href="wishlist.html">Wish List</a></li>
-                                    <li><a href="order-tracking.html">Order tracking</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">My account</a></li>
+                                    <li><a href="#">Wish List</a></li>
+                                    <li><a href="#">Order tracking</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Contact us</a></li>
                                 </ul>
                             </div>
                         </div>
